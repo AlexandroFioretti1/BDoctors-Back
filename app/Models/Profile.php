@@ -4,6 +4,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 class Profile extends Model
 {
@@ -29,5 +31,11 @@ class Profile extends Model
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+    public function sponsors():BelongsToMany{
+        return $this->belongsToMany(Sponsor::class);
+    }
+    public function specializations():BelongsToMany{
+        return $this->belongsToMany(Specialization::class);
     }
 }
