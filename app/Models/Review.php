@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Review extends Model
 {
@@ -11,6 +13,10 @@ class Review extends Model
     protected $fillable = [
         'text',
         'profile_id',
-        'date','name','surname','email'
-        ];
+        'date', 'name', 'surname', 'email'
+    ];
+    public function profile(): BelongsTo
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }
