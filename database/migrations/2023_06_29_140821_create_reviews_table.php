@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->text('text');
+            $table->dateTime('date');
+            $table->string('name');
+            $table->string('surname');
+            $table->string('email');
             $table->timestamps();
         });
     }

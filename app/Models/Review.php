@@ -9,6 +9,8 @@ class Review extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'text','profile_id','date','name','surname','email'
+        'text',
+        'profile_id',
+        'date','name','surname','email'
         ];
 }

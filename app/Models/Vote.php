@@ -9,6 +9,8 @@ class Vote extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'vote','date','profile_id'
+        'vote',
+        'date',
+        'profile_id'
     ];
 }
