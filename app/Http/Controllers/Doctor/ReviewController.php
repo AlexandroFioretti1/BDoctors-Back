@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Doctor;
+
 
 use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
