@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Doctor;
 
-use App\Models\Sponsor;
-use App\Http\Requests\StoreSponsorRequest;
-use App\Http\Requests\UpdateSponsorRequest;
 
-class SponsorController extends Controller
+use App\Models\Vote;
+use App\Http\Requests\StoreVoteRequest;
+use App\Http\Requests\UpdateVoteRequest;
+
+class VoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class SponsorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSponsorRequest  $request
+     * @param  \App\Http\Requests\StoreVoteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSponsorRequest $request)
+    public function store(StoreVoteRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class SponsorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sponsor  $sponsor
+     * @param  \App\Models\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function show(Sponsor $sponsor)
+    public function show(Vote $vote)
     {
         //
     }
@@ -53,10 +54,10 @@ class SponsorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sponsor  $sponsor
+     * @param  \App\Models\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sponsor $sponsor)
+    public function edit(Vote $vote)
     {
         //
     }
@@ -64,11 +65,11 @@ class SponsorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSponsorRequest  $request
-     * @param  \App\Models\Sponsor  $sponsor
+     * @param  \App\Http\Requests\UpdateVoteRequest  $request
+     * @param  \App\Models\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSponsorRequest $request, Sponsor $sponsor)
+    public function update(UpdateVoteRequest $request, Vote $vote)
     {
         //
     }
@@ -76,10 +77,10 @@ class SponsorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sponsor  $sponsor
+     * @param  \App\Models\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sponsor $sponsor)
+    public function destroy(Vote $vote)
     {
         //
     }

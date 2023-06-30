@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Doctor;
 
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;

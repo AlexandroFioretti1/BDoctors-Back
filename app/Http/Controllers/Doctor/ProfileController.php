@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Doctor;
 
-use App\Models\Specialization;
-use App\Http\Requests\StoreSpecializationRequest;
-use App\Http\Requests\UpdateSpecializationRequest;
 
-class SpecializationController extends Controller
+use App\Models\Profile;
+use App\Http\Requests\StoreProfileRequest;
+use App\Http\Requests\UpdateProfileRequest;
+
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class SpecializationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSpecializationRequest  $request
+     * @param  \App\Http\Requests\StoreProfileRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSpecializationRequest $request)
+    public function store(StoreProfileRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class SpecializationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Specialization  $specialization
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Specialization $specialization)
+    public function show(Profile $profile)
     {
         //
     }
@@ -53,10 +54,10 @@ class SpecializationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Specialization  $specialization
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Specialization $specialization)
+    public function edit(Profile $profile)
     {
         //
     }
@@ -64,11 +65,11 @@ class SpecializationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSpecializationRequest  $request
-     * @param  \App\Models\Specialization  $specialization
+     * @param  \App\Http\Requests\UpdateProfileRequest  $request
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSpecializationRequest $request, Specialization $specialization)
+    public function update(UpdateProfileRequest $request, Profile $profile)
     {
         //
     }
@@ -76,10 +77,10 @@ class SpecializationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Specialization  $specialization
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Specialization $specialization)
+    public function destroy(Profile $profile)
     {
         //
     }
