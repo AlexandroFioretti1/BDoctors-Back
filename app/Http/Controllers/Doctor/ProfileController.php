@@ -18,7 +18,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        
+
         $user = Auth::user();
         $profile = $user->profile;
 
@@ -57,7 +57,7 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         //dd($user->id);
-        
+
         $val_data =  $request->validated();
 
         //controllare ci siano solo numeri in phone_number*
@@ -69,24 +69,24 @@ class ProfileController extends Controller
         if ($profile) {
             return to_route('profiles.index')->with('message', 'Profile already exist');
         }
-        
-        $name = $user->name; 
+
+        $name = $user->name;
         $surname = $user->surname;
-        
+
         $slug = Profile::generateSlug($name, $surname);
         $val_data['slug'] = $slug;
-        
+
         $val_data['user_id'] = $user->id;
 
-        $new_profile= Profile::create($val_data);
+        $new_profile = Profile::create($val_data);
 
         //dd($new_profile);
-        
+
         //attach the specializations
         if ($request->has('specializations')) {
             $new_profile->specializations()->attach($request->specializations);
         }
-        
+
         return to_route('profiles.index')->with('message', 'Profile created');
     }
 
@@ -132,6 +132,7 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        //
+        $profile->delete();
+        return to_route('profiles.index')->with('message', 'Profile deleted successfully');
     }
 }
