@@ -14,6 +14,8 @@ class Vote extends Model
         'date',
         'profile_id'
     ];
+    
+    //Lorenzo:Link to table 'Profile' 1tomany
     public function profile(): BelongsTo
     {
         return $this->belongsTo(Profile::class);

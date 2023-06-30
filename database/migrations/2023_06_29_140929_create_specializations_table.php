@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        //Lorenzo:Creating columns for the 'Specializations' table
         Schema::create('specializations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -27,6 +28,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //Lorenzo: drop table 'specializations'
         Schema::dropIfExists('specializations');
     }
 };

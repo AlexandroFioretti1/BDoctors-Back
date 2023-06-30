@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
+        //Lorenzo:Creating columns for the 'Messages' table
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->string('user_name_surname');
             $table->text('text');
-            $table->datetime('date'); 
+            $table->datetime('date');
             $table->string('email');
             $table->timestamps();
         });
@@ -30,6 +31,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //Lorenzo: drop table 'messages'
         Schema::dropIfExists('messages');
     }
 };

@@ -12,7 +12,9 @@ class Specialization extends Model
     protected $fillable = [
         'name'
     ];
+    //Lorenzo:Link to table 'Profiles' manytomany
     public function profiles():BelongsToMany{
+        
         return $this->belongsToMany(Profile::class);
     }
 }

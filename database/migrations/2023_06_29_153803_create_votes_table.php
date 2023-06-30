@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
+        //Lorenzo:Creating columns for the 'votes' table
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('vote'); 
+            $table->tinyInteger('vote');
             $table->datetime('time');
             $table->timestamps();
         });
@@ -28,6 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //Lorenzo: drop table 'votes'
         Schema::dropIfExists('votes');
     }
 };

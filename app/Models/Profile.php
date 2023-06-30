@@ -19,23 +19,29 @@ class Profile extends Model
     'perfomances',
     'user_id'
     ];
-
+    //Lorenzo:Link to table 'User' 1to1
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+    //Lorenzo:Link to table 'Votes' 1tomany
     public function votes(): HasMany
     {
         return $this->hasMany(Vote::class);
     }
+    //Lorenzo:Link to table 'Reviews' 1tomany
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
     }
+    //Lorenzo:Link to table 'Sponsors' manytomany
     public function sponsors():BelongsToMany{
+
         return $this->belongsToMany(Sponsor::class);
     }
+    //Lorenzo:Link to table 'Specialiyations' manytomany
     public function specializations():BelongsToMany{
+
         return $this->belongsToMany(Specialization::class);
     }
 }
