@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Doctor;
 
-
 use App\Models\Profile;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -16,7 +17,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        
+        $user = Auth::user();
+        $profile = $user->profile;
+
+        return view('doctor.index', compact('profile'));
     }
 
     /**
@@ -26,7 +31,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('doctor.create');
     }
 
     /**
