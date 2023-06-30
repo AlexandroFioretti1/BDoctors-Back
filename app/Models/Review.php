@@ -15,6 +15,7 @@ class Review extends Model
         'profile_id',
         'date', 'name', 'surname', 'email'
     ];
+    //Link to table 'profile' 1tomany
     public function profile(): BelongsTo
     {
         return $this->belongsTo(Profile::class);

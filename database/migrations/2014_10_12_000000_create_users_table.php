@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        //Lorenzo:Creating by Laravel columns for the 'users' table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');

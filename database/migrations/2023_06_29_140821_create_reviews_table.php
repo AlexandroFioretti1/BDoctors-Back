@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        //Lorenzo:Creating columns for the 'Reviews' table
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->text('text');

@@ -12,7 +12,10 @@ class Sponsor extends Model
     protected $fillable = [
         'name','price','duration'
     ];
+    //Lorenzo:Link to table 'Profiles' manytomany
     public function profiles():BelongsToMany{
+
         return $this->belongsToMany(Profile::class);
+
     }
 }

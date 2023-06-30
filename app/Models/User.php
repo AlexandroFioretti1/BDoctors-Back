@@ -32,10 +32,14 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+
+    //Lorenzo:Link to table 'Messages' 1tomany
     public function messages(): HasMany
     {
         return $this->hasMany(Message::class);
     }
+    
+    //Lorenzo:Link to table 'Profiles' 1to1
     public function profile()
     {
         return $this->hasOne(Profile::class);
