@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Doctor;
 
-
 use App\Models\Profile;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\Specialization;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -16,7 +18,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        
+        $user = Auth::user();
+        $profile = $user->profile;
+
+        return view('doctor.index', compact('profile'));
     }
 
     /**
@@ -26,7 +32,18 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $profile = $user->profile;
+
+        //check if profile already exist
+        if ($profile) {
+            return to_route('profiles.index')->with('message', 'Profile already exist');
+        }
+
+        //take specializations from db
+        $specializations = Specialization::all();
+
+        return view('doctor.create', compact('specializations', 'user'));
     }
 
     /**
@@ -37,7 +54,40 @@ class ProfileController extends Controller
      */
     public function store(StoreProfileRequest $request)
     {
-        //
+        $user = Auth::user();
+
+        //dd($user->id);
+        
+        $val_data =  $request->validated();
+
+        //controllare ci siano solo numeri in phone_number*
+
+
+        $profile = $user->profile;
+
+        //check if profile already exist
+        if ($profile) {
+            return to_route('profiles.index')->with('message', 'Profile already exist');
+        }
+        
+        $name = $user->name; 
+        $surname = $user->surname;
+        
+        $slug = Profile::generateSlug($name, $surname);
+        $val_data['slug'] = $slug;
+        
+        $val_data['user_id'] = $user->id;
+
+        $new_profile= Profile::create($val_data);
+
+        //dd($new_profile);
+        
+        //attach the specializations
+        if ($request->has('specializations')) {
+            $new_profile->specializations()->attach($request->specializations);
+        }
+        
+        return to_route('profiles.index')->with('message', 'Profile created');
     }
 
     /**
