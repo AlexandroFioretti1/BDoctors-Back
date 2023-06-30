@@ -33,6 +33,7 @@ return new class extends Migration
     {
         Schema::table('profiles', function (Blueprint $table) {
 
+            $table->dropForeign('profiles_user_id_foreign');
             //Lorenzo: drop column 'user_id'
             $table->dropColumn('user_id');
         });
