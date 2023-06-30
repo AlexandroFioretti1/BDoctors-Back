@@ -2,23 +2,35 @@
 
 
 @section('content')
-    <a class="btn btn-primary" href="{{ route('profiles.create') }}" role="button">Button</a>
 
-    @if ($profile)
-        <div class="container">
+
+    <div class="container">
+        <div class="my-2">
+            <a class="btn btn-primary" href="{{ route('profiles.create') }}" role="button">Create a profile</a>
+        </div>
+        @if ($profile)
             <div class="card">
                 <img class="card-img-top" src="holder.js/100x180/" alt="img">
                 <div class="card-body">
                     <h4 class="card-title">{{ $profile->user->name }} {{ $profile->user?->surname }} </h4>
                     <p class="card-text">{{ $profile->address }}</p>
+                    <ul>
+                        @foreach ($profile->specializations as $specialization)
+                            <li> {{ $specialization->name }}</li>
+                        @endforeach
+                    </ul>
                 </div>
                 <div class="d-flex">
                     <div class="row gap-2">
                         <div>
-                            <a class="btn btn-primary" href="#" role="button">Edit</a>
+
+                            {{-- edit button  --}}
+                            <a class="btn btn-primary" href="profiles/{{ $profile->slug }}/edit" role="button">Edit</a>
                         </div>
                         <div>
-                            <a class="btn btn-danger" href="#" role="button" data-bs-toggle="modal"
+
+                            {{-- delete button  --}}
+                            <a class="btn btn-danger" role="button" data-bs-toggle="modal"
                                 data-bs-target="#deleteModal-{{ $profile->id }}">Delete</a>
                         </div>
                     </div>
@@ -50,6 +62,6 @@
                 </div>
 
             </div>
-        </div>
+    </div>
     @endif
 @endsection

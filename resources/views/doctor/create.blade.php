@@ -40,7 +40,7 @@
             {{-- form address --}}
 
             <div class="mb-5">
-                <label for="doctor_image" class="form-label">doctor_image</label>
+                <label for="doctor_image" class="form-label">Doctor Image</label>
                 <input type="file" name="doctor_image" id="doctor_image"
                     class="form-control @error('doctor_image') is-invalid @enderror">
                 <small id="helpDoctor_image" class="text-muted">Add a Photo</small>
@@ -80,7 +80,7 @@
             @enderror
             {{-- form performances --}}
 
-            {{-- <div class="form-group">
+            <div class="form-group">
                 <p>Select your specializations</p>
                 @foreach ($specializations as $specialization)
                     <div class="form-check @error('specializations') is-invalid @enderror">
@@ -97,7 +97,7 @@
                 @error('specializations')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-            </div> --}}
+            </div>
 
 
             <button type="submit" class="btn btn-primary w-100 mt-4 py-2 px-4">Create Profile</button>

@@ -109,7 +109,13 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        //
+        $user = Auth::user();
+        $profile = $user->profile;
+
+        //take specializations from db
+        $specializations = Specialization::all();
+
+        return view('doctor.edit', compact('specializations', 'user', 'profile'));
     }
 
     /**
@@ -121,7 +127,40 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, Profile $profile)
     {
-        //
+        $user = Auth::user();
+
+        //dd($user->id);
+
+        $val_data =  $request->validated();
+
+        //controllare ci siano solo numeri in phone_number*
+
+
+        $profile = $user->profile;
+
+        //check if profile already exist
+        if ($profile) {
+            return to_route('profiles.index')->with('message', 'Profile already exist');
+        }
+
+        $name = $user->name;
+        $surname = $user->surname;
+
+        $slug = Profile::generateSlug($name, $surname);
+        $val_data['slug'] = $slug;
+
+        $val_data['user_id'] = $user->id;
+
+        $profile->update($val_data);
+
+        //dd($new_profile);
+
+        //attach the specializations
+        if ($request->has('specializations')) {
+            $profile->specializations()->sync($request->specializations);
+        }
+
+        return to_route('profiles.index')->with('message', 'Profile updated');
     }
 
     /**
