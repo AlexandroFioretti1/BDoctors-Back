@@ -28,6 +28,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //Lorenzo: drop table 'specializations'
         Schema::dropIfExists('specializations');
     }
 };

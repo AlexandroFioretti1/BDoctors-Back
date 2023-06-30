@@ -32,6 +32,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //Lorenzo: drop table 'reviews'
         Schema::dropIfExists('reviews');
     }
 };

@@ -33,6 +33,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //Lorenzo: drop table 'profiles'
         Schema::dropIfExists('profiles');
     }
 };

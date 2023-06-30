@@ -44,6 +44,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //Lorenzo: drop table 'profile_sponsor'
         Schema::dropIfExists('profile_sponsor');
     }
 };
