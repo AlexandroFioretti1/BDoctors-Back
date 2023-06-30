@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
 //route DoctorProfile
 Route::middleware(['auth', 'verified'])->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name(('dashboard'));
-    Route::resource('profiles', DoctorProfileController::class)->parameters([
+    Route::resource('/profiles', DoctorProfileController::class)->parameters([
         'profiles' => 'profile:slug'
     ]);
 

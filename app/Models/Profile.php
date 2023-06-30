@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
+use Illuminate\Support\Str;
 
 class Profile extends Model
 {
@@ -16,9 +16,17 @@ class Profile extends Model
     'address',
     'doctor_image',
     'cv',
-    'perfomances',
+    'performances',
     'user_id'
     ];
+
+    //generate SLUG function
+    public static function generateSlug($name, $surname) {
+        $completeName = ($name . ' ' . $surname) ;
+
+        $slug = Str::slug($completeName, '-');
+        return $slug;
+    }
     //Lorenzo:Link to table 'User' 1to1
     public function user()
     {
