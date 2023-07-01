@@ -24,7 +24,13 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'phone_number' => ['nullable'],
+            'address' => ['nullable', 'max:255'],
+            'doctor_image' => ['nullable',], //  'image', 'max:955'
+            'cv' => ['nullable',], //  'image', 'max:955'
+            'performances' => ['nullable'],
+            'specializations' => ['exists:specializations,id'],
+            // 'user_id' => ['nullable']
         ];
     }
 }

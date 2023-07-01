@@ -139,9 +139,9 @@ class ProfileController extends Controller
         $profile = $user->profile;
 
         //check if profile already exist
-        if ($profile) {
-            return to_route('profiles.index')->with('message', 'Profile already exist');
-        }
+        // if ($profile) {
+        //     return to_route('profiles.index')->with('message', 'Profile already exist');
+        // }
 
         $name = $user->name;
         $surname = $user->surname;
