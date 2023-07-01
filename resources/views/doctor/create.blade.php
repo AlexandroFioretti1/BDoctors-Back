@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
 
-        <form action="{{ route('profiles.store') }}" method="post">
+        <form action="{{ route('profiles.store') }}" method="post"   enctype="multipart/form-data">
             @csrf
 
             <h1 class="fs-4 text-secondary my-4">Create Profile</h1>
