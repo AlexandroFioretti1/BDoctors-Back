@@ -18,10 +18,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
-
+        // get data by current user
         $user = Auth::user();
+
+        // set $profile equivalent  into user -> profile
         $profile = $user->profile;
 
+        // move user to index page share $profile
         return view('doctor.index', compact('profile'));
     }
 
@@ -32,17 +35,23 @@ class ProfileController extends Controller
      */
     public function create()
     {
+        // get data by current user
         $user = Auth::user();
+
+        // set $profile equivalent  into user -> profile
         $profile = $user->profile;
 
         //check if profile already exist
         if ($profile) {
+
+            // if user have just a profile  redirect to page index with error message
             return to_route('profiles.index')->with('message', 'Profile already exist');
         }
 
         //take specializations from db
         $specializations = Specialization::all();
 
+        // move user to create page share $specializations (because the specializations are on another table ), $user(because...)
         return view('doctor.create', compact('specializations', 'user'));
     }
 
@@ -54,39 +63,65 @@ class ProfileController extends Controller
      */
     public function store(StoreProfileRequest $request)
     {
+
+        // get data by current user
         $user = Auth::user();
 
         //dd($user->id);
 
+        // get validate data from form
         $val_data =  $request->validated();
 
-        //controllare ci siano solo numeri in phone_number*
 
 
+
+        #controllare ci siano solo numeri in phone_number*
+
+
+
+
+        // set $profile equivalent  into user -> profile
         $profile = $user->profile;
 
         //check if profile already exist
         if ($profile) {
+
+            // if user have just a profile  redirect to page index with error message
             return to_route('profiles.index')->with('message', 'Profile already exist');
         }
 
+        //-- for slug --
+
+        // get user name and set into $name
         $name = $user->name;
+
+        // get user surname and set into $surname
         $surname = $user->surname;
 
+        //  use function 'generationSlug' for create slug whit ($name $surname)
         $slug = Profile::generateSlug($name, $surname);
+
+        // set key 'slug' into $val_data by $slug
         $val_data['slug'] = $slug;
 
+        //-----------------------------------------------------
+
+        //  set key 'user_id' into $val_data by $user -> id
         $val_data['user_id'] = $user->id;
 
+        // create new profile whit $val_data by model Profile
         $new_profile = Profile::create($val_data);
 
         //dd($new_profile);
 
-        //attach the specializations
+        // if there are 'specializations'
         if ($request->has('specializations')) {
+
+            //attach the specializations into $new_profile
             $new_profile->specializations()->attach($request->specializations);
         }
 
+        // redirect to index page with success message 
         return to_route('profiles.index')->with('message', 'Profile created');
     }
 
@@ -109,12 +144,16 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
+        // get data by current user
         $user = Auth::user();
+
+        // set $profile equivalent into user -> profile
         $profile = $user->profile;
 
-        //take specializations from db
+        // take specializations from db
         $specializations = Specialization::all();
 
+        // return to edit page whit specialization , user and profile 
         return view('doctor.edit', compact('specializations', 'user', 'profile'));
     }
 
@@ -127,39 +166,65 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, Profile $profile)
     {
+        // get data by current user
         $user = Auth::user();
 
         //dd($user->id);
 
+        // get validate data from form
         $val_data =  $request->validated();
+
+
+
 
         //controllare ci siano solo numeri in phone_number*
 
 
+
+        // set $profile equivalent into user -> profile
         $profile = $user->profile;
+
+
+
 
         //check if profile already exist
         // if ($profile) {
         //     return to_route('profiles.index')->with('message', 'Profile already exist');
         // }
 
+
+        //-- for slug --
+
+        // get user name and set into $name
         $name = $user->name;
+
+        // get user surname and set into $surname
         $surname = $user->surname;
 
+        //  use function 'generationSlug' for create slug whit ($name $surname)
         $slug = Profile::generateSlug($name, $surname);
+
+        // set key 'slug' into $val_data by $slug
         $val_data['slug'] = $slug;
 
+        //  set key 'user_id' into $val_data by $user -> id
         $val_data['user_id'] = $user->id;
 
+        //update $profile whit $val_data
         $profile->update($val_data);
+
 
         //dd($new_profile);
 
-        //attach the specializations
+
+        //if there are 'specializations'
         if ($request->has('specializations')) {
+
+            //sync the specializations  into $profile
             $profile->specializations()->sync($request->specializations);
         }
 
+        // return to index page whit success message
         return to_route('profiles.index')->with('message', 'Profile updated');
     }
 
@@ -171,7 +236,10 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
+        //delete $profile 
         $profile->delete();
+
+        //return to index page whit success message
         return to_route('profiles.index')->with('message', 'Profile deleted successfully');
     }
 }
