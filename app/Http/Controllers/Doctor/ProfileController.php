@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Specialization;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -67,17 +68,13 @@ class ProfileController extends Controller
         // get data by current user
         $user = Auth::user();
 
+
         //dd($user->id);
 
+
+        
         // get validate data from form
         $val_data =  $request->validated();
-
-
-
-
-        #controllare ci siano solo numeri in phone_number*
-
-
 
 
         // set $profile equivalent  into user -> profile
@@ -90,7 +87,8 @@ class ProfileController extends Controller
             return to_route('profiles.index')->with('message', 'Profile already exist');
         }
 
-        //-- for slug --
+        //---------------SLUG---------------------------------
+
 
         // get user name and set into $name
         $name = $user->name;
@@ -104,10 +102,36 @@ class ProfileController extends Controller
         // set key 'slug' into $val_data by $slug
         $val_data['slug'] = $slug;
 
-        //-----------------------------------------------------
+        //----------------END STORE--------------------------------
+
 
         //  set key 'user_id' into $val_data by $user -> id
         $val_data['user_id'] = $user->id;
+
+        //---------STORE----------
+
+        //if a file for the " cv " key was uploaded
+        if ($request->hasFile('cv')) {
+
+            //import the file into the storage folder and save path into $image_path
+            $img_path = Storage::put('uploads/', $request->cv);
+
+            //set key 'cv' whit img path
+            $val_data['cv'] = $img_path;
+        }
+
+        //if a file for the " doctor_image " key was uploaded
+        if ($request->hasFile('doctor_image')) {
+
+            //import the file into the storage folder and save path into $image_path
+            $img_path = Storage::put('uploads/', $request->doctor_image);
+
+            //set key 'doctor_image'' whit img path
+            $val_data['doctor_image'] = $img_path;
+        }
+
+        //-------------------------END STORE-------------------------
+
 
         // create new profile whit $val_data by model Profile
         $new_profile = Profile::create($val_data);
@@ -174,15 +198,12 @@ class ProfileController extends Controller
         // get validate data from form
         $val_data =  $request->validated();
 
-
-
-
-        //controllare ci siano solo numeri in phone_number*
-
-
-
         // set $profile equivalent into user -> profile
         $profile = $user->profile;
+
+
+
+
 
 
 
@@ -193,7 +214,7 @@ class ProfileController extends Controller
         // }
 
 
-        //-- for slug --
+        //------------SLUG----------------------
 
         // get user name and set into $name
         $name = $user->name;
@@ -207,8 +228,50 @@ class ProfileController extends Controller
         // set key 'slug' into $val_data by $slug
         $val_data['slug'] = $slug;
 
+        //------------END SLUG----------------------
+
         //  set key 'user_id' into $val_data by $user -> id
         $val_data['user_id'] = $user->id;
+
+
+        //---------STORE----------
+
+        //if a file for the " cv " key was uploaded
+        if ($request->hasFile('cv')) {
+
+            //if there is an old file into 'cv' key
+            if ($profile->cv) {
+
+                //delete file into storage folder
+                Storage::delete($profile->cv);
+            }
+
+            //import the file into the storage folder and save path into $image_path
+            $img_path = Storage::put('uploads/', $request->cv);
+
+            //set key 'cv' whit img path
+            $val_data['cv'] = $img_path;
+        }
+
+        //if a file for the " doctor_image " key was uploaded
+        if ($request->hasFile('doctor_image')) {
+
+            //if there is an old file into 'doctor_image' key
+            if ($profile->doctor_image) {
+
+                //delete file into storage folder
+                Storage::delete($profile->doctor_image);
+            }
+
+            //import the file into the storage folder and save path into $image_path
+            $img_path = Storage::put('uploads/', $request->doctor_image);
+
+            //set key 'doctor_image'' whit img path
+            $val_data['doctor_image'] = $img_path;
+        }
+
+        //-----------------------END STORE------------------------
+
 
         //update $profile whit $val_data
         $profile->update($val_data);
@@ -236,6 +299,22 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
+        
+        //if there is an old file into 'doctor_image' key
+        if ($profile->doctor_image) {
+
+            //delete file into storage folder
+            Storage::delete($profile->doctor_image);
+        }
+
+        //if there is an old file into 'cv' key
+        if ($profile->cv) {
+
+            //delete file into storage folder
+            Storage::delete($profile->cv);
+        }
+
+
         //delete $profile 
         $profile->delete();
 

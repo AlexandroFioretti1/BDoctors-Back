@@ -10,7 +10,7 @@
         </div>
         @if ($profile)
             <div class="card">
-                <img class="card-img-top" src="holder.js/100x180/" alt="img">
+                <img class="card-img-top" src="{{ asset('storage/' . $profile->doctor_image) }}" alt="img">
                 <div class="card-body">
                     <h4 class="card-title">{{ $profile->user->name }} {{ $profile->user?->surname }} </h4>
                     <p class="card-text">{{ $profile->address }}</p>
