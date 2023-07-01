@@ -68,18 +68,12 @@ class ProfileController extends Controller
         // get data by current user
         $user = Auth::user();
 
+
         //dd($user->id);
 
+        
         // get validate data from form
         $val_data =  $request->validated();
-
-
-
-
-        #controllare ci siano solo numeri in phone_number*
-
-
-
 
         // set $profile equivalent  into user -> profile
         $profile = $user->profile;
@@ -91,7 +85,7 @@ class ProfileController extends Controller
             return to_route('profiles.index')->with('message', 'Profile already exist');
         }
 
-        //-- for slug --
+        //---------------SLUG---------------------------------
 
         // get user name and set into $name
         $name = $user->name;
@@ -105,7 +99,7 @@ class ProfileController extends Controller
         // set key 'slug' into $val_data by $slug
         $val_data['slug'] = $slug;
 
-        //-----------------------------------------------------
+        //----------------END STORE--------------------------------
 
         //  set key 'user_id' into $val_data by $user -> id
         $val_data['user_id'] = $user->id;
@@ -132,7 +126,7 @@ class ProfileController extends Controller
             $val_data['doctor_image'] = $img_path;
         }
 
-        //-----------------------------------------------------------
+        //-------------------------END STORE-------------------------
 
         // create new profile whit $val_data by model Profile
         $new_profile = Profile::create($val_data);
@@ -199,13 +193,6 @@ class ProfileController extends Controller
         // get validate data from form
         $val_data =  $request->validated();
 
-
-
-
-        //controllare ci siano solo numeri in phone_number*
-
-
-
         // set $profile equivalent into user -> profile
         $profile = $user->profile;
 
@@ -218,7 +205,7 @@ class ProfileController extends Controller
         // }
 
 
-        //-- for slug --
+        //------------SLUG----------------------
 
         // get user name and set into $name
         $name = $user->name;
@@ -231,6 +218,8 @@ class ProfileController extends Controller
 
         // set key 'slug' into $val_data by $slug
         $val_data['slug'] = $slug;
+
+        //------------END SLUG----------------------
 
         //  set key 'user_id' into $val_data by $user -> id
         $val_data['user_id'] = $user->id;
@@ -247,7 +236,6 @@ class ProfileController extends Controller
                 //delete file into storage folder
                 Storage::delete($profile->cv);
             }
-
 
             //import the file into the storage folder and save path into $image_path
             $img_path = Storage::put('uploads/', $request->cv);
@@ -274,8 +262,6 @@ class ProfileController extends Controller
         }
 
         //-----------------------END STORE------------------------
-
-
 
         //update $profile whit $val_data
         $profile->update($val_data);
