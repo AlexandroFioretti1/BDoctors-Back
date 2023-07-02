@@ -1,3 +1,4 @@
+![BDoctor logo](/bdoctor.png)
 
 ## About BDoctors
 BDoctor is a web app that allows doctors and patients to connect. Each doctor has access to their own back-office area where they can manage their profile.
