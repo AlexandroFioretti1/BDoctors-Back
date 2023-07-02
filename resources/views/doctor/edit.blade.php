@@ -4,12 +4,23 @@
 @section('content')
     <div class="container">
 
-        <form action="{{ route('profiles.update', $profile) }}" method="post"  enctype="multipart/form-data">
+        <form action="{{ route('profiles.update', $profile) }}" method="post" enctype="multipart/form-data">
             @csrf
 
             @method('PUT')
 
-            <h1 class="fs-4 text-secondary my-4">Create Profile</h1>
+            <h1 class="fs-4 text-secondary my-4">Edit Your Profile</h1>
+
+            <div class="mb-5">
+                <label for="name" class="form-label"> Name </label>
+                <input id="surname" class="form-control" type="text" value="{{ $profile->user->name }}" disabled>
+                <small class="text-muted">You can't change this field here</small>
+            </div>
+            <div class="mb-5">
+                <label for="surname" class="form-label">Surname</label>
+                <input id="surname" class="form-control" type="text" value="{{ $profile->user->surname }}" disabled>
+                <small class="text-muted">You can't change this field here</small>
+            </div>
 
             <div class="mb-5">
                 <label for="phone_number" class="form-label">Phone Number</label>
