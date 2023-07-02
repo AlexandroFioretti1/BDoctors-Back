@@ -5,11 +5,11 @@
 
 
     <div class="container">
-        <div class="my-2">
+        <div class="my-3">
             <a class="btn btn-primary" href="{{ route('profiles.create') }}" role="button">Create a profile</a>
         </div>
         @if ($profile)
-            <div class="card">
+            <div class="card shadow p-3">
                 <img class="card-img-top" src="{{ asset('storage/' . $profile->doctor_image) }}" alt="img">
                 <div class="card-body">
                     <h4 class="card-title">{{ $profile->user->name }} {{ $profile->user?->surname }} </h4>
@@ -21,14 +21,12 @@
                     </ul>
                 </div>
                 <div class="d-flex">
-                    <div class="row gap-2">
-                        <div>
-
+                    <div class="row gap-1 p-3">
+                        <div class="col">
                             {{-- edit button  --}}
                             <a class="btn btn-primary" href="profiles/{{ $profile->slug }}/edit" role="button">Edit</a>
                         </div>
-                        <div>
-
+                        <div class="col">
                             {{-- delete button  --}}
                             <a class="btn btn-danger" role="button" data-bs-toggle="modal"
                                 data-bs-target="#deleteModal-{{ $profile->id }}">Delete</a>
