@@ -22,35 +22,37 @@
                         <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email" required autofocus>
                         <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required>
 
-                        <div class="mb-4 row">
+                        <div class="row">
                             <div class="col-md-6 offset-md-4">
+                              <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                  <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                 </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="form-check-label col-form-label" for="remember">
+                                  {{ __('Remember Me') }}
+                                </label>
+                              </div>
                             </div>
                         </div>
-
-                        <div class="mb-4 row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                          
+                        <div class="row">
+                            <div class="col p-2">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                                @endif
                             </div>
                         </div>
                     </form>
-
                     <!-- Remind Passowrd -->
-                    <div id="formFooter">
-                        <a class="underlineHover" href="#">Forgot Password?</a>
+                    <div class="underlineHover" href="#" id="formFooter">
+                        @if (Route::has('password.request'))
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+                        @endif
                     </div>
                 </div>
             </div>
