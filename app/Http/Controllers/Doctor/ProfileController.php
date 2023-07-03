@@ -110,7 +110,7 @@ class ProfileController extends Controller
         if ($request->hasFile('cv')) {
 
             //import the file into the storage folder and save path into $image_path
-            $img_path = Storage::put('uploads/', $request->cv);
+            $img_path = Storage::put('public/uploads/', $request->cv);
 
             //set key 'cv' whit img path
             $val_data['cv'] = $img_path;
@@ -120,7 +120,7 @@ class ProfileController extends Controller
         if ($request->hasFile('doctor_image')) {
 
             //import the file into the storage folder and save path into $image_path
-            $img_path = Storage::put('uploads/', $request->doctor_image);
+            $img_path = Storage::put('public/uploads/', $request->doctor_image);
 
             //set key 'doctor_image'' whit img path
             $val_data['doctor_image'] = $img_path;
@@ -238,7 +238,7 @@ class ProfileController extends Controller
             }
 
             //import the file into the storage folder and save path into $image_path
-            $img_path = Storage::put('uploads/', $request->cv);
+            $img_path = Storage::put('public/uploads/', $request->cv);
 
             //set key 'cv' whit img path
             $val_data['cv'] = $img_path;
@@ -255,7 +255,7 @@ class ProfileController extends Controller
             }
 
             //import the file into the storage folder and save path into $image_path
-            $img_path = Storage::put('uploads/', $request->doctor_image);
+            $img_path = Storage::put('public/uploads/', $request->doctor_image);
 
             //set key 'doctor_image'' whit img path
             $val_data['doctor_image'] = $img_path;
