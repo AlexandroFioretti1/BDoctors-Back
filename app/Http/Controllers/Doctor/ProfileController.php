@@ -71,9 +71,11 @@ class ProfileController extends Controller
 
         //dd($user->id);
 
+
         
         // get validate data from form
         $val_data =  $request->validated();
+
 
         // set $profile equivalent  into user -> profile
         $profile = $user->profile;
@@ -86,6 +88,7 @@ class ProfileController extends Controller
         }
 
         //---------------SLUG---------------------------------
+
 
         // get user name and set into $name
         $name = $user->name;
@@ -100,6 +103,7 @@ class ProfileController extends Controller
         $val_data['slug'] = $slug;
 
         //----------------END STORE--------------------------------
+
 
         //  set key 'user_id' into $val_data by $user -> id
         $val_data['user_id'] = $user->id;
@@ -127,6 +131,7 @@ class ProfileController extends Controller
         }
 
         //-------------------------END STORE-------------------------
+
 
         // create new profile whit $val_data by model Profile
         $new_profile = Profile::create($val_data);
@@ -199,6 +204,10 @@ class ProfileController extends Controller
 
 
 
+
+
+
+
         //check if profile already exist
         // if ($profile) {
         //     return to_route('profiles.index')->with('message', 'Profile already exist');
@@ -263,6 +272,7 @@ class ProfileController extends Controller
 
         //-----------------------END STORE------------------------
 
+
         //update $profile whit $val_data
         $profile->update($val_data);
 
@@ -303,6 +313,7 @@ class ProfileController extends Controller
             //delete file into storage folder
             Storage::delete($profile->cv);
         }
+
 
         //delete $profile 
         $profile->delete();
