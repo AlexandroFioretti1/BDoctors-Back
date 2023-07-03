@@ -24,10 +24,10 @@ class StoreProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone_number' => ['nullable','numeric'],
+            'phone_number' => ['nullable', 'numeric','digits_between:9,16'],
             'address' => ['nullable', 'max:255'],
-            'doctor_image' => ['nullable','image', 'max:955'], //  
-            'cv' => ['nullable','file' , 'mimes:pdf', 'max:5000'], //  
+            'doctor_image' => ['nullable', 'image', 'max:955'], //  
+            'cv' => ['nullable', 'file', 'mimes:pdf', 'max:5000'], //  
             'performances' => ['nullable'],
             'specializations' => ['exists:specializations,id'],
             // 'user_id' => ['nullable']
