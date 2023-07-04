@@ -38,7 +38,7 @@ document
             event.preventDefault();
             const errorMessage = nameInput.validationMessage;
             nameError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 1:", errorMessage);
             nameInput.classList.add("error");
         }
 
@@ -48,7 +48,7 @@ document
             event.preventDefault();
             const errorMessage = surnameInput.validationMessage;
             surnameError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 2:", errorMessage);
             surnameInput.classList.add("error");
         }
 
@@ -58,7 +58,7 @@ document
             event.preventDefault();
             const errorMessage = addressInput.validationMessage;
             addressError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 3:", errorMessage);
             addressInput.classList.add("error");
         }
 
@@ -68,7 +68,7 @@ document
             event.preventDefault();
             const errorMessage = PasswordInput.validationMessage;
             PasswordError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 4:", errorMessage);
             PasswordInput.classList.add("error");
         }
 
@@ -79,7 +79,7 @@ document
             event.preventDefault();
             const errorMessage = emailInput.validationMessage;
             emailError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 5:", errorMessage);
             emailInput.classList.add("error");
         }
 
@@ -93,7 +93,7 @@ document
             event.preventDefault();
             const errorMessage = emailInput.validationMessage;
             emailError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 6:", errorMessage);
             emailInput.classList.add("error");
         }
 
@@ -103,17 +103,17 @@ document
             event.preventDefault();
             const errorMessage = emailInput.validationMessage;
             emailError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 7:", errorMessage);
             emailInput.classList.add("error");
         }
 
         //check if there is text beetween . and end
-        if (!positionPoint + 1) {
+        if (positionPoint == emailInputValue.length - 1) {
             //Prevent form sent
             event.preventDefault();
             const errorMessage = emailInput.validationMessage;
             emailError.classList.remove("d-none");
-            console.log("Errore di validazione:", errorMessage);
+            console.log("Errore di validazione 8:", errorMessage);
             emailInput.classList.add("error");
         }
     });
