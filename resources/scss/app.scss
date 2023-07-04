@@ -8,9 +8,26 @@
 /* BASIC */
 
 html {
-    background-color: #56baed;
+    background-color: #ffffff;
+    animation: backgroundTransition 10s linear forwards;
 }
-
+@keyframes backgroundTransition {
+    0% {
+        background-color: #ffffff;
+    }
+    25% {
+        background-color: #6fc4ee;
+    }
+    50% {
+        background-color: #56baed;
+    }
+    70% {
+        background-color: #4ea9d6;
+    }
+    100% {
+        background-color: #279cd6;
+    }
+}
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
