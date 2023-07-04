@@ -24,6 +24,9 @@
                                 <div class="alert alert-danger d-none" id="nameError" role="alert">
                                     <strong>Alert: </strong>Name must be less than 50 characters
                                 </div>
+                                <div class="alert alert-danger d-none" id="nameErrorRequired" role="alert">
+                                    <strong>Alert: </strong>This field is required
+                                </div>
                                 <label for="name"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -43,6 +46,9 @@
                             <div class="mb-4 row">
                                 <div class="alert alert-danger d-none" id="surnameError" role="alert">
                                     <strong>Alert: </strong>Surname must be less than 50 characters
+                                </div>
+                                <div class="alert alert-danger d-none" id="surnameErrorRequired" role="alert">
+                                    <strong>Alert: </strong>This field is required
                                 </div>
                                 <label for="surname"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
@@ -64,6 +70,9 @@
                                 <div class="alert alert-danger d-none" id="addressError" role="alert">
                                     <strong>Alert: </strong>Address must be less than 255 characters
                                 </div>
+                                <div class="alert alert-danger d-none" id="addressErrorRequired" role="alert">
+                                    <strong>Alert: </strong>This field is required
+                                </div>
                                 <label for="address"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
@@ -81,6 +90,12 @@
                             </div>
 
                             <div class="mb-4 row">
+                                <div class="alert alert-danger d-none" id="emailError" role="alert">
+                                    <strong>Alert: </strong>This in not a valid mail
+                                </div>
+                                <div class="alert alert-danger d-none" id="emailErrorRequired" role="alert">
+                                    <strong>Alert: </strong>This field is required
+                                </div>
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -100,6 +115,9 @@
                             <div class="mb-4 row">
                                 <div class="alert alert-danger d-none" id="passwordError" role="alert">
                                     <strong>Alert: </strong>Passwords don't match
+                                </div>
+                                <div class="alert alert-danger d-none" id="passwordErrorRequired" role="alert">
+                                    <strong>Alert: </strong>This field is required
                                 </div>
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
