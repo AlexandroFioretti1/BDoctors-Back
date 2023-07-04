@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function index() 
     {
         //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
         $profiles = Profile::with('reviews','votes','specializations','user')->paginate(10);
