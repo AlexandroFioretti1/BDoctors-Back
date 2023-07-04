@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 <div class="wrapper fadeInDown">
-                    <div id="formContent" class="col-8 shadow rounded-5 mt-3">
+                    <div id="formContent" class="col-8 shadow-lg rounded-5 mt-3">
                         <!-- Tabs Titles -->
                         <h2 class="inactive underlineHover">Sign Up</h2>
 
@@ -154,10 +154,12 @@
                             </div>
                         </form>
 
+
                         <!-- Remind Password -->
                         <div id="formFooter">
                             <a class="underlineHover" href="#">Forgot Password?</a>
                         </div>
+
                     </div>
                 </div>
             </div>
