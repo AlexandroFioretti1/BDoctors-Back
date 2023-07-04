@@ -3,6 +3,7 @@
 .error {
     border: 5px solid red;
 }
+
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 
 /* BASIC */
@@ -11,23 +12,29 @@ html {
     background-color: #ffffff;
     animation: backgroundTransition 10s linear forwards;
 }
+
 @keyframes backgroundTransition {
     0% {
         background-color: #ffffff;
     }
+
     25% {
         background-color: #6fc4ee;
     }
+
     50% {
         background-color: #56baed;
     }
+
     70% {
         background-color: #4ea9d6;
     }
+
     100% {
         background-color: #279cd6;
     }
 }
+
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
@@ -51,6 +58,55 @@ h2 {
     color: #cccccc;
 }
 
+.btn-primary {
+    background-color: #0078d0;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-primary:before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+    width: 92%;
+}
+
+.btn-primary:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .btn-primary {
+        padding: 16px 48px;
+    }
+}
+
+
+
+
 /* STRUCTURE */
 
 .wrapper {
@@ -62,6 +118,38 @@ h2 {
     min-height: 100%;
     padding: 20px;
 }
+
+
+// #region ambulance
+.ambulance {
+    height: 70px;
+    object-fit: contain;
+    position: absolute;
+    top: 20%;
+    left: -15vh;
+    animation: move 10s 1 linear;
+    z-index: 1000;
+
+    img {
+        height: 100%;
+    }
+}
+
+@keyframes move {
+    0% {
+        left: -10vh;
+
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+
+
+// #endregion ambulance
 
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -190,6 +278,7 @@ input[type="password"]:placeholder {
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
     }
+
     100% {
         opacity: 1;
         -webkit-transform: none;
@@ -203,6 +292,7 @@ input[type="password"]:placeholder {
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
     }
+
     100% {
         opacity: 1;
         -webkit-transform: none;
@@ -215,22 +305,27 @@ input[type="password"]:placeholder {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 @-moz-keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -308,4 +403,5 @@ input[type="password"]:placeholder {
 * {
     box-sizing: border-box;
 }
+
 //---------navbar---------//
