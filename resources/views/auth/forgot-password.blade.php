@@ -1,24 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
+<div class="container ">
+    <div class="row d-flex justify-content-center ">
+        <div class="col-8 shadow rounded-5 mt-5">
+            <div class="card-header fs-4 text-secondary my-5 text-start p-5"><b> {{ __('Reset Password') }} </b> </div>
+            <div class="">
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form class="p-5" method="POST" action="{{ route('password.email') }}">
                         @csrf
-
                         <div class="mb-4 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right ">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -30,7 +27,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -3,9 +3,9 @@
 @section('content')
 <div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="wrapper fadeInDown">
-                <div id="formContent">
+        <div class="col-md-8 ">
+            <div class="wrapper fadeInDown ">
+                <div id="formContent" class="col-8 shadow rounded-5 mt-3">
                     <!-- Tabs Titles -->
                     <h2 class="active"> Sign In </h2>
                     {{-- <h2 class="inactive underlineHover">Sign Up </h2> --}}
@@ -23,13 +23,12 @@
                         <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required>
 
                         <div class="row">
-                            <div class="col-md-6 offset-md-4">
-                              <div class="form-group">
-                                <div class="form-check">
+                            <div class="col">
+                              <div class="form-group d-flex justify-content-center">
+                                <div class="form-check align-self-center">
                                   <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                  
                                 </div>
-                              </div>
-                              <div class="form-group">
                                 <label class="form-check-label col-form-label" for="remember">
                                   {{ __('Remember Me') }}
                                 </label>

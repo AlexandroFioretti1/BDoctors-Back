@@ -14,6 +14,7 @@ html {
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 a {
@@ -290,3 +291,4 @@ input[type="password"]:placeholder {
 * {
     box-sizing: border-box;
 }
+//---------navbar---------//
