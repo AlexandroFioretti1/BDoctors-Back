@@ -17,6 +17,11 @@ document
         const addressInputValue = addressInput.value;
         const addressError = document.getElementById("addressError");
 
+        //Email
+        const emailInput = document.getElementById("email");
+        const emailInputValue = emailInput.value;
+        const emailError = document.getElementById("emailError");
+
         //Password
         const PasswordInput = document.getElementById("password");
         const PasswordInputValue = PasswordInput.value;
@@ -65,5 +70,50 @@ document
             PasswordError.classList.remove("d-none");
             console.log("Errore di validazione:", errorMessage);
             PasswordInput.classList.add("error");
+        }
+
+        //email validation
+
+        if (!emailInputValue.includes("@") || !emailInputValue.includes(".")) {
+            // Prevent form sent
+            event.preventDefault();
+            const errorMessage = emailInput.validationMessage;
+            emailError.classList.remove("d-none");
+            console.log("Errore di validazione:", errorMessage);
+            emailInput.classList.add("error");
+        }
+
+        //take At and Point index
+        let positionAt = emailInputValue.indexOf("@") + 1;
+        let positionPoint = emailInputValue.indexOf(".");
+
+        //check if there is text beetween @ and .
+        if (emailInputValue.substring(positionAt, positionPoint) == "") {
+            //Prevent form sent
+            event.preventDefault();
+            const errorMessage = emailInput.validationMessage;
+            emailError.classList.remove("d-none");
+            console.log("Errore di validazione:", errorMessage);
+            emailInput.classList.add("error");
+        }
+
+        //check if there is text beetween start and @
+        if (positionAt - 1 == 0) {
+            //Prevent form sent
+            event.preventDefault();
+            const errorMessage = emailInput.validationMessage;
+            emailError.classList.remove("d-none");
+            console.log("Errore di validazione:", errorMessage);
+            emailInput.classList.add("error");
+        }
+
+        //check if there is text beetween . and end
+        if (!positionPoint + 1) {
+            //Prevent form sent
+            event.preventDefault();
+            const errorMessage = emailInput.validationMessage;
+            emailError.classList.remove("d-none");
+            console.log("Errore di validazione:", errorMessage);
+            emailInput.classList.add("error");
         }
     });
