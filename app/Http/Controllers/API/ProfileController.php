@@ -10,9 +10,9 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        //get all profile  by paginate
-        $profiles = Profile::paginate(10);
-        
+        //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
+        $profiles = Profile::with('rewiews','votes','specializzation','user')->paginate(10);
+
         //return file json with status success and $profiles
         return response()->json([
             "success" => true,
