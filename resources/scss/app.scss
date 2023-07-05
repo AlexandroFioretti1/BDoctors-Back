@@ -57,7 +57,7 @@ h2 {
     margin: 40px 8px 10px 8px;
     color: #cccccc;
 }
-// .btn-primary--------------//
+
 .btn-primary {
     background-color: #0078d0;
     border: 0;
@@ -65,8 +65,7 @@ h2 {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
-        "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
     font-size: 18px;
     font-weight: 600;
     outline: 0;
@@ -74,7 +73,7 @@ h2 {
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all .3s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -87,16 +86,15 @@ h2 {
     content: "";
     height: 50%;
     left: 4%;
-    opacity: 0.5;
+    opacity: .5;
     position: absolute;
     top: 0;
-    transition: all 0.3s;
+    transition: all .3s;
     width: 92%;
 }
 
 .btn-primary:hover {
-    box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
-        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
     transform: scale(1.05);
 }
 
@@ -105,103 +103,10 @@ h2 {
         padding: 16px 48px;
     }
 }
-// .btn-danger--------------//
-.btn-danger {
-    background-color: #eb0404;
-    border: 0;
-    border-radius: 56px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
-        "Helvetica Neue", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    outline: 0;
-    padding: 16px 21px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
 
-.btn-danger:before {
-    background-color: initial;
-    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
-    border-radius: 125px;
-    content: "";
-    height: 50%;
-    left: 4%;
-    opacity: 0.5;
-    position: absolute;
-    top: 0;
-    transition: all 0.3s;
-    width: 92%;
-}
 
-.btn-danger:hover {
-    box-shadow: rgba(94, 13, 13, 0.2) 0 3px 15px inset,
-        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
-    transform: scale(1.05);
-}
 
-@media (min-width: 768px) {
-    .btn-danger {
-        padding: 16px 48px;
-    }
-}
-// .btn-danger----END----------//
-//.btn-secondary---------START--//
-.btn-secondary {
-    background-color: #181212b6;
-    border: 0;
-    border-radius: 56px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
-        "Helvetica Neue", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    outline: 0;
-    padding: 16px 21px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
 
-.btn-secondary:before {
-    background-color: initial;
-    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
-    border-radius: 125px;
-    content: "";
-    height: 50%;
-    left: 4%;
-    opacity: 0.5;
-    position: absolute;
-    top: 0;
-    transition: all 0.3s;
-    width: 92%;
-}
-
-.btn-secondary:hover {
-    box-shadow: rgba(94, 13, 13, 0.2) 0 3px 15px inset,
-        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
-    transform: scale(1.05);
-}
-
-@media (min-width: 768px) {
-    .btn-secondary {
-        padding: 16px 48px;
-    }
-}
 /* STRUCTURE */
 
 .wrapper {
@@ -213,6 +118,7 @@ h2 {
     min-height: 100%;
     padding: 20px;
 }
+
 
 // #region ambulance
 .ambulance {
@@ -232,12 +138,16 @@ h2 {
 @keyframes move {
     0% {
         left: -10vh;
+
     }
 
     100% {
         left: 100%;
     }
 }
+
+
+
 
 // #endregion ambulance
 
