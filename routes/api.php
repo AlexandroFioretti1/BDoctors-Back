@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ProfileController;
+use App\Http\Controllers\API\SpecializationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Api call Profiles route
 Route::get('/profiles',[ProfileController::class,'index']);
+
+// Api call Specializations route
+Route::get('/specializations',[SpecializationController::class,'index']);
