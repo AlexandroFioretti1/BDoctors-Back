@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container">
                 <div class="col-4">
-                    <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                    <a class="navbar-brand d-flex align-items-center" href="http://localhost:5174/#">
                         <div class="logo_laravel navbar-expand-sm px-2  px-sm-0   ">
                             <div class="fadeIn ">
                                 <img class="w-75"
@@ -44,9 +44,12 @@
                                         {{ Auth::user()->name }}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-left button-51" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item button-51" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
-                                        <a class="dropdown-item button-51" href="{{ url('profile') }}">{{ __('Profile') }}</a>
+                                    <div class="dropdown-menu dropdown-menu-left button-51"
+                                        aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item button-51"
+                                            href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                                        <a class="dropdown-item button-51"
+                                            href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                         <a class="dropdown-item button-51" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                                      document.getElementById('logout-form').submit();">
