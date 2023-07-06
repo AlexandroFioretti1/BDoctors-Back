@@ -21,7 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Api call Profiles route
-Route::get('/profiles',[ProfileController::class,'index']);
+Route::get('/profiles', [ProfileController::class, 'index']);
+Route::get('/profile/{slug}', [ProfileController::class, 'show']);
 
 // Api call Specializations route
-Route::get('/specializations',[SpecializationController::class,'index']);
+Route::get('/specializations', [SpecializationController::class, 'index']);
