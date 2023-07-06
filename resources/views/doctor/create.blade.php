@@ -3,8 +3,8 @@
 
 @section('content')
     <div class="container">
-        <div class="row d-flex justify-content-center ">
-            <div class="col-8 rounded-5 mt-5 bg-light shadow-lg">
+        <div class="row d-flex justify-content-center pb-5">
+            <div class="col-8 rounded-5 mt-5 bg-light shadow-lg ">
                 <form id="my-form" action="{{ route('profiles.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <h1 class="fs-4 text-secondary my-4 mt-5"><b>Create Profile</b> </h1>
