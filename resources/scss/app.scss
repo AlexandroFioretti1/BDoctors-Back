@@ -10,7 +10,7 @@
 
 html {
     background-color: #ffffff;
-    animation: backgroundTransition 10s linear forwards;
+    animation: backgroundTransition 22s linear forwards;
 }
 
 @keyframes backgroundTransition {
@@ -18,10 +18,12 @@ html {
         background-color: #ffffff;
     }
 
-    25% {
+    20% {
+        background-color: #7ecef7;
+    }
+    35% {
         background-color: #6fc4ee;
     }
-
     50% {
         background-color: #56baed;
     }
@@ -30,8 +32,11 @@ html {
         background-color: #4ea9d6;
     }
 
-    100% {
+    90% {
         background-color: #279cd6;
+    }
+    100% {
+        background-color: #05608d;
     }
 }
 
@@ -65,7 +70,8 @@ h2 {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
     font-size: 18px;
     font-weight: 600;
     outline: 0;
@@ -73,7 +79,7 @@ h2 {
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: all .3s;
+    transition: all 0.3s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -86,15 +92,16 @@ h2 {
     content: "";
     height: 50%;
     left: 4%;
-    opacity: .5;
+    opacity: 0.5;
     position: absolute;
     top: 0;
-    transition: all .3s;
+    transition: all 0.3s;
     width: 92%;
 }
 
 .btn-primary:hover {
-    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
     transform: scale(1.05);
 }
 
@@ -103,9 +110,103 @@ h2 {
         padding: 16px 48px;
     }
 }
+// .btn-danger--------------//
+.btn-danger {
+    background-color: #eb0404;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
 
+.btn-danger:before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s;
+    width: 92%;
+}
 
+.btn-danger:hover {
+    box-shadow: rgba(94, 13, 13, 0.2) 0 3px 15px inset,
+        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+    transform: scale(1.05);
+}
 
+@media (min-width: 768px) {
+    .btn-danger {
+        padding: 16px 48px;
+    }
+}
+// .btn-danger----END----------//
+//.btn-secondary---------START--//
+.btn-secondary {
+    background-color: #181212b6;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-secondary:before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s;
+    width: 92%;
+}
+
+.btn-secondary:hover {
+    box-shadow: rgba(94, 13, 13, 0.2) 0 3px 15px inset,
+        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .btn-secondary {
+        padding: 16px 48px;
+    }
+}
 
 /* STRUCTURE */
 
@@ -118,7 +219,6 @@ h2 {
     min-height: 100%;
     padding: 20px;
 }
-
 
 // #region ambulance
 // .ambulance {
@@ -143,9 +243,6 @@ h2 {
 //         left: 100%;
 //     }
 // }
-
-
-
 
 // #endregion ambulance
 
@@ -173,6 +270,58 @@ h2 {
 }
 
 /* TABS */
+
+//----------------- btn header---------------------//
+.button-51 {
+    background-color: transparent;
+    border: 1px solid #266db6;
+    box-sizing: border-box;
+    color: #00132c;
+    font-family: "Avenir Next LT W01 Bold", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 16px 23px;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-51:hover,
+.button-51:active {
+    outline: 0;
+}
+
+.button-51:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button-51:before {
+    background-color: #d5edf6;
+    content: "";
+    height: calc(100% + 3px);
+    position: absolute;
+    right: -7px;
+    top: -9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+}
+
+.button-51:hover:before {
+    background-color: #6dcff6;
+}
+
+@media (min-width: 768px) {
+    .button-51 {
+        padding: 16px 32px;
+    }
+}
+
+//----------------- btn header-----end----------------//
 
 h2.inactive {
     color: #cccccc;

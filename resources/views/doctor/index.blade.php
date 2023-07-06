@@ -8,7 +8,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-8 shadow-lg rounded-5 mt-5">
                 @if (!$profile)
-                    <div class="my-3 p-3">
+                    <div class="my-3 p-3 text-center">
                         <a class="btn btn-primary" href="{{ route('profiles.create') }}" role="button">Create a profile</a>
                     </div>
                 @endif

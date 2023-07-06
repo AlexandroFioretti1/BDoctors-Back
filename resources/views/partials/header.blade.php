@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container">
                 <div class="col-4">
-                    <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                    <a class="navbar-brand d-flex align-items-center" href="http://localhost:5174/#">
                         <div class="logo_laravel navbar-expand-sm px-2  px-sm-0   ">
                             <div class="fadeIn ">
                                 <img class="w-75"
@@ -26,35 +26,38 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto align-content-end">
+                        <ul class="navbar-nav ml-auto align-content-end ">
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                                 @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                <li class="nav-item dropdown ">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle " href="#" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
-                                        <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <div class="dropdown-menu dropdown-menu-left button-51"
+                                        aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item button-51"
+                                            href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                                        <a class="dropdown-item button-51"
+                                            href="{{ url('profile') }}">{{ __('Profile') }}</a>
+                                        <a class="dropdown-item button-51" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
+                                            class="d-none button-51">
                                             @csrf
                                         </form>
                                     </div>
