@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\MessageController;
 use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\ReviewController;
 use App\Http\Controllers\API\SpecializationController;
@@ -32,3 +33,4 @@ Route::get('/specializations', [SpecializationController::class, 'index']);
 //Api call Vote
 Route::post('/votes', [VoteController::class, 'store']);
 Route::post('/reviews', [ReviewController::class, 'store']);
+Route::post('/messages', [MessageController::class, 'store']);
