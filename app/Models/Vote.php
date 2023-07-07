@@ -11,10 +11,10 @@ class Vote extends Model
     use HasFactory;
     protected $fillable = [
         'vote',
-        'date',
-        'profile_id'
+        'time',
+        'profile_id',
     ];
-    
+
     //Lorenzo:Link to table 'Profile' 1tomany
     public function profile(): BelongsTo
     {

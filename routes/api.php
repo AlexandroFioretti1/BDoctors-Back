@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\SpecializationController;
+use App\Http\Controllers\API\VoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,7 @@ Route::get('/profile/{slug}', [ProfileController::class, 'show']);
 
 // Api call Specializations route
 Route::get('/specializations', [SpecializationController::class, 'index']);
+
+//Api call Vote
+Route::post('/votes', [VoteController::class, 'store']);
+
