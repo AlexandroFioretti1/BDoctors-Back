@@ -20,4 +20,16 @@ class Vote extends Model
     {
         return $this->belongsTo(Profile::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function ($vote) {
+            $profile = Profile::find($vote->profile_id);
+            $averageVote = round($profile->votes()->avg("vote"), 1);
+            $profile->average_vote = intval($averageVote);
+            $profile->save();
+        });
+    }
 }
