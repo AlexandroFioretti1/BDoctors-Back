@@ -10,16 +10,17 @@ class ProfileController extends Controller
 {
     public function index(Request $request)
     {
-        //take selectedSpecializations from FrontEnd
+        //take params from FrontEnd
         $selectedSpecialization = $request->query('specialization_id');
+        $selectedVote = $request->query('vote');
+        $selectedReview = $request->query('review');
 
         //take all profile
         $profiles = Profile::with('reviews', 'votes', 'specializations', 'user');
 
+
         //check if has a specialization in a select
         if ($selectedSpecialization) {
-
-
             //overwrite profiles
             //check if specialization_id matches with selectSpecialization
             $profiles = $profiles->whereHas('specializations', function ($query) use ($selectedSpecialization) {
@@ -29,6 +30,28 @@ class ProfileController extends Controller
             //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
             $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->paginate(10);
         }
+
+
+
+
+
+
+        /* VOTE   */
+        if ($selectedVote) {
+            //overwrite profiles
+            //check if specialization_id matches with selectSpecialization
+            $profiles = $profiles->whereHas('specializations', function ($query) use ($selectedSpecialization) {
+                $query->where('id', $selectedSpecialization);
+            })->get();
+        } else {
+            //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
+            $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->paginate(10);
+        }
+
+
+
+
+
 
         //return file json with status success and $profiles
         return response()->json([

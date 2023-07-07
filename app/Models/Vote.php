@@ -14,10 +14,21 @@ class Vote extends Model
         'date',
         'profile_id'
     ];
-    
+
     //Lorenzo:Link to table 'Profile' 1tomany
     public function profile(): BelongsTo
     {
         return $this->belongsTo(Profile::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function ($vote) {
+            $profile = Profile::find($vote->profile_id);
+            $profile->average_vote = round($profile->votes()->avg("vote"), 1);
+            $profile->save();
+        });
     }
 }

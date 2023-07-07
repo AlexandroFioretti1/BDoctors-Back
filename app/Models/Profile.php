@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,22 +12,37 @@ class Profile extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'slug',
-    'phone_number',
-    'address',
-    'doctor_image',
-    'cv',
-    'performances',
-    'user_id'
+        'slug',
+        'phone_number',
+        'address',
+        'doctor_image',
+        'cv',
+        'performances',
+        'user_id'
     ];
 
     //generate SLUG function
-    public static function generateSlug($name, $surname) {
-        $completeName = ($name . ' ' . $surname) ;
+    public static function generateSlug($name, $surname)
+    {
+        $completeName = ($name . ' ' . $surname);
 
         $slug = Str::slug($completeName, '-');
         return $slug;
     }
+
+    /* Sum for Votes */
+    /* public function avarageVote()
+    {
+       return $this->votes()->avg('vote'); 
+         $totalVotes = $this->votes()->count();
+        $sumVotes = $this->votes()->sum("vote");
+
+        if ($totalVotes > 0) {
+            return $sumVotes / $totalVotes;
+        }
+        return 0; 
+    }
+ */
     //Lorenzo:Link to table 'User' 1to1
     public function user()
     {
@@ -43,12 +59,14 @@ class Profile extends Model
         return $this->hasMany(Review::class);
     }
     //Lorenzo:Link to table 'Sponsors' manytomany
-    public function sponsors():BelongsToMany{
+    public function sponsors(): BelongsToMany
+    {
 
         return $this->belongsToMany(Sponsor::class);
     }
     //Lorenzo:Link to table 'Specialiyations' manytomany
-    public function specializations():BelongsToMany{
+    public function specializations(): BelongsToMany
+    {
 
         return $this->belongsToMany(Specialization::class);
     }
