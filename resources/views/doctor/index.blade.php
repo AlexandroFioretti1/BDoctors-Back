@@ -24,6 +24,21 @@
                                     <li> {{ $specialization->name }}</li>
                                 @endforeach
                             </ul>
+                            <h6><strong>Your reviews </strong></h6>
+                            <div>
+                                <ul>
+                                    @foreach ($reviews as $review)
+                                        <li>
+                                            from <strong>{{ $review['name'] }} {{ $review['surname'] }} </strong> on
+                                            <strong>
+                                                {{ $review['date'] }} </strong> :
+                                            <span>{{ $review['text'] }}</span>
+                                            <span> <strong> {{ $review['email'] }} </strong></span>
+                                        </li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
                         </div>
                         <div class="d-flex">
                             <div class="row gap-1 p-3">

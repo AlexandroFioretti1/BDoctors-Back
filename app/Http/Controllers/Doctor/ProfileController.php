@@ -6,6 +6,7 @@ use App\Models\Profile;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\Review;
 use App\Models\Specialization;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -24,9 +25,10 @@ class ProfileController extends Controller
 
         // set $profile equivalent  into user -> profile
         $profile = $user->profile;
+        $reviews = Review::where('profile_id', $profile->id)->get();
 
         // move user to index page share $profile
-        return view('doctor.index', compact('profile'));
+        return view('doctor.index', compact('profile', 'reviews'));
     }
 
     /**
@@ -72,7 +74,7 @@ class ProfileController extends Controller
         //dd($user->id);
 
 
-        
+
         // get validate data from form
         $val_data =  $request->validated();
 
@@ -299,7 +301,7 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        
+
         //if there is an old file into 'doctor_image' key
         if ($profile->doctor_image) {
 
