@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ProfileController;
+use App\Http\Controllers\API\ReviewController;
 use App\Http\Controllers\API\SpecializationController;
 use App\Http\Controllers\API\VoteController;
 use Illuminate\Http\Request;
@@ -30,4 +31,4 @@ Route::get('/specializations', [SpecializationController::class, 'index']);
 
 //Api call Vote
 Route::post('/votes', [VoteController::class, 'store']);
-
+Route::post('/reviews', [ReviewController::class, 'store']);

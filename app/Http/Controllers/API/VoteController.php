@@ -19,7 +19,10 @@ class VoteController extends Controller
             ]
         );
 
-        $newvote = Vote::create($validatedData);
+        $slug = $request->validate(['slug' => ['nullable']]);
 
+        $superSlug = $slug["slug"];
+        $newvote = Vote::create($validatedData);
+        return redirect("http://localhost:5174/single-profile/" . $superSlug);
     }
 }
