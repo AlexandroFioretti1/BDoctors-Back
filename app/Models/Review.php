@@ -13,11 +13,24 @@ class Review extends Model
     protected $fillable = [
         'text',
         'profile_id',
-        'date', 'name', 'surname', 'email'
+        'date', 
+        'name',
+         'surname',
+          'email'
     ];
     //Link to table 'profile' 1tomany
     public function profile(): BelongsTo
     {
         return $this->belongsTo(Profile::class);
+    }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function ($review) {
+            $profile = Profile::find($review->profile_id)/* ->reviews()->count("review") */;
+            $profile->counter_reviews ++;
+            $profile->save();
+        });
     }
 }

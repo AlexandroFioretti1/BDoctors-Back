@@ -26,8 +26,36 @@ class ProfileController extends Controller
             $profiles = $profiles->whereHas('specializations', function ($query) use ($selectedSpecialization) {
                 $query->where('id', $selectedSpecialization);
             })->get();
+
+
             if ($selectedVote) {
-                $profiles = $profiles->where('average_vote', $selectedVote);
+                if ($selectedVote == 'all') {
+                    
+                    //$profiles = Profile::with('reviews', 'votes', 'specializations', 'user');
+                    $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->whereHas('specializations', function ($query) use ($selectedSpecialization) {
+                        $query->where('id', $selectedSpecialization);
+                    })->get();
+
+                    //dd($profiles);
+
+                }else{
+
+                    $profiles = $profiles->where('average_vote', $selectedVote);
+
+                }
+            }
+
+            if($selectedReview){
+                //dd($selectedReview);
+                //dd($profiles);  
+
+                /* $profiles = $profiles->filter(function ($profile) use ($selectedReview) {
+                    return $profile->selectedReview >= 3; // Modifica la condizione di filtraggio come necessario
+                }); */
+                
+                //dd($profiles);
+                $profiles = $profiles->whereBetween($selectedReview,[1,3]);
+                dd($profiles);
             }
         } else {
             //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
