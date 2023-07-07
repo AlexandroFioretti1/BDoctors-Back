@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('profiles', function (Blueprint $table) {
-            $table->decimal('average_vote', 5, 2)->nullable();
+            $table->integer('average_vote')->nullable();
         });
     }
 

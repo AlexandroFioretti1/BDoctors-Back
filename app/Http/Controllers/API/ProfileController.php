@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast;
 
 class ProfileController extends Controller
 {
@@ -18,7 +19,6 @@ class ProfileController extends Controller
         //take all profile
         $profiles = Profile::with('reviews', 'votes', 'specializations', 'user');
 
-
         //check if has a specialization in a select
         if ($selectedSpecialization) {
             //overwrite profiles
@@ -26,32 +26,13 @@ class ProfileController extends Controller
             $profiles = $profiles->whereHas('specializations', function ($query) use ($selectedSpecialization) {
                 $query->where('id', $selectedSpecialization);
             })->get();
+            if ($selectedVote) {
+                $profiles = $profiles->where('average_vote', $selectedVote);
+            }
         } else {
             //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
             $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->paginate(10);
         }
-
-
-
-
-
-
-        /* VOTE   */
-        if ($selectedVote) {
-            //overwrite profiles
-            //check if specialization_id matches with selectSpecialization
-            $profiles = $profiles->whereHas('specializations', function ($query) use ($selectedSpecialization) {
-                $query->where('id', $selectedSpecialization);
-            })->get();
-        } else {
-            //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
-            $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->paginate(10);
-        }
-
-
-
-
-
 
         //return file json with status success and $profiles
         return response()->json([

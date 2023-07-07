@@ -27,7 +27,8 @@ class Vote extends Model
 
         static::saved(function ($vote) {
             $profile = Profile::find($vote->profile_id);
-            $profile->average_vote = round($profile->votes()->avg("vote"), 1);
+            $averageVote = round($profile->votes()->avg("vote"), 1);
+            $profile->average_vote = intval($averageVote);
             $profile->save();
         });
     }
