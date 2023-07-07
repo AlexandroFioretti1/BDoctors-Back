@@ -46,16 +46,19 @@ class ProfileController extends Controller
             }
 
             if($selectedReview){
-                //dd($selectedReview);
-                //dd($profiles);  
+          
+                if ($selectedReview == 1) {
+                    $profiles = $profiles->where('counter_reviews' , null)->where('counter_reviews', '<=', 2);
+                   
+                }elseif($selectedReview == 2){
+                    $profiles = $profiles->where('counter_reviews' ,'>', 2 )->where('counter_reviews','<', 5 );
 
-                /* $profiles = $profiles->filter(function ($profile) use ($selectedReview) {
-                    return $profile->selectedReview >= 3; // Modifica la condizione di filtraggio come necessario
-                }); */
-                
-                //dd($profiles);
-                $profiles = $profiles->whereBetween($selectedReview,[1,3]);
-                dd($profiles);
+                }elseif($selectedReview == 3){
+                    $profiles = $profiles->where('counter_reviews' ,'>=', 5 );
+
+                }elseif($selectedReview == 'all'){
+                    $profiles = $profiles->all();
+                }
             }
         } else {
             //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
