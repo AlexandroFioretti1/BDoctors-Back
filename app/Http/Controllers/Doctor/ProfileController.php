@@ -23,9 +23,15 @@ class ProfileController extends Controller
         // get data by current user
         $user = Auth::user();
 
+
         // set $profile equivalent  into user -> profile
         $profile = $user->profile;
-        $reviews = Review::where('profile_id', $profile->id)->get();
+        if ($profile == null) {
+            $reviews = [];
+        } else {
+            $reviews = Review::where('profile_id', $profile->id)->get();
+        }
+
 
         // move user to index page share $profile
         return view('doctor.index', compact('profile', 'reviews'));
