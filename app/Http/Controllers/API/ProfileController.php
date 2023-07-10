@@ -27,36 +27,26 @@ class ProfileController extends Controller
                 $query->where('id', $selectedSpecialization);
             })->get();
 
-
+            /* selectedVote  */
             if ($selectedVote) {
                 if ($selectedVote == 'all') {
-                    
-                    //$profiles = Profile::with('reviews', 'votes', 'specializations', 'user');
                     $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->whereHas('specializations', function ($query) use ($selectedSpecialization) {
                         $query->where('id', $selectedSpecialization);
                     })->get();
-
-                    //dd($profiles);
-
-                }else{
-
-                    $profiles = $profiles->where('average_vote', $selectedVote);
-
+                } else {
+                    $profiles = $profiles->where('average_vote', '>=', $selectedVote);
                 }
             }
 
-            if($selectedReview){
-          
+            if ($selectedReview) {
+
                 if ($selectedReview == 1) {
-                    $profiles = $profiles->where('counter_reviews' , null)->where('counter_reviews', '<=', 2);
-                   
-                }elseif($selectedReview == 2){
-                    $profiles = $profiles->where('counter_reviews' ,'>', 2 )->where('counter_reviews','<', 5 );
-
-                }elseif($selectedReview == 3){
-                    $profiles = $profiles->where('counter_reviews' ,'>=', 5 );
-
-                }elseif($selectedReview == 'all'){
+                    $profiles = $profiles->where('counter_reviews', null)->where('counter_reviews', '<=', 2);
+                } elseif ($selectedReview == 2) {
+                    $profiles = $profiles->where('counter_reviews', '>', 2)->where('counter_reviews', '<', 5);
+                } elseif ($selectedReview == 3) {
+                    $profiles = $profiles->where('counter_reviews', '>=', 5);
+                } elseif ($selectedReview == 'all') {
                     $profiles = $profiles->all();
                 }
             }
@@ -75,7 +65,6 @@ class ProfileController extends Controller
     public function show($slug)
     {
         $profile = Profile::with(['reviews', 'votes', 'specializations', 'user'])->where("slug", $slug)->first();
-
         if ($profile) {
             return response()->json([
                 "success" => true,

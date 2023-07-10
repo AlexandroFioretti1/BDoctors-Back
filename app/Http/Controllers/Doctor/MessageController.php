@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Doctor;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,7 +17,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $messages = Message::where('user_id', $user->id)->orderByDesc('id')->get();
+        return view('doctor.messages', compact('messages'));
     }
 
     /**

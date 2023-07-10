@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Doctor;
 use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class ReviewController extends Controller
 {
@@ -16,8 +18,15 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $profile = $user->profile;
+
+        $reviews = Review::where('profile_id', $profile->id)->orderByDesc('id')->get();
+        return view('doctor.reviews', compact('reviews'));
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
