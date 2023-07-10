@@ -22,8 +22,6 @@ class ProfileController extends Controller
     {
         // get data by current user
         $user = Auth::user();
-
-
         // set $profile equivalent  into user -> profile
         $profile = $user->profile;
         if ($profile == null) {
