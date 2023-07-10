@@ -4,6 +4,8 @@ use App\Http\Controllers\Doctor\DashboardController;
 use App\Http\Controllers\Doctor\MessageController;
 use App\Http\Controllers\Doctor\ProfileController as DoctorProfileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Doctor\ReviewController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +38,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+    Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
 });
 
 //route Profile auth
