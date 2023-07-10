@@ -37,8 +37,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+
+    Route::resource('/messages', MessageController::class);
+
     Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
+
 });
 
 //route Profile auth

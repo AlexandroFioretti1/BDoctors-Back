@@ -72,9 +72,16 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMessageRequest $request, Message $message)
+    public function update(Message $message)
     {
-        //
+
+        dd('ciao');
+        // if (!$message->read) {
+        //     $message->read = 1;
+        // }
+
+        // $message->update($message->read);
+
     }
 
     /**

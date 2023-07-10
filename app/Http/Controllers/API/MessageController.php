@@ -26,4 +26,25 @@ class MessageController extends Controller
 
         return redirect("http://localhost:5174/single-profile/" . $superSlug);
     }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateMessageRequest  $request
+     * @param  \App\Models\Message  $message
+     * @return \Illuminate\Http\Response
+     */
+    public function update($messageId)
+    {
+
+        $message = Message::findOrFail($messageId);
+        $message->read = true;
+        $message->save();
+    
+        return response()->json(['message' => 'Messaggio contrassegnato come letto'], 200);
+
+
+        // $message->update($message->read);
+
+    }
 }
