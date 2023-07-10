@@ -32,5 +32,8 @@ Route::get('/specializations', [SpecializationController::class, 'index']);
 
 //Api call Vote
 Route::post('/votes', [VoteController::class, 'store']);
-Route::post('/reviews', [ReviewController::class, 'store']);
+
+Route::post('/reviews', [ReviewController::class, 'store'])
+;
 Route::post('/messages', [MessageController::class, 'store']);
+Route::patch('/messages/{messageId}', [MessageController::class, 'update']);

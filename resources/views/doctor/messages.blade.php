@@ -19,7 +19,9 @@
                                 @endif
                                 <p>{{ $message->user_name_surname }}</p>
                                 <small>{{ $message->date }}</small><br>
-                                <button type="button" class="btn btn-primary px-3 py-1">
+
+                                <button id="{{ $message->id }}" class="btn btn-primary px-3 py-1 read" role="button"
+                                    data-message-id="{{ $message->id }}">
                                     Read
                                 </button>
 
