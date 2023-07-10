@@ -4,9 +4,16 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-8 shadow-lg rounded-5 mt-5">
-                <h2 class="fs-4 text-secondary my-4 p-5">
-                    {{ __('Dashboard') }}
-                </h2>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="fs-4 text-secondary my-4 p-5">
+                            {{ __('Dashboard') }}
+                        </h2>
+                    </div>
+                    <div>
+                        <a class="btn btn-success" href="{{ route('sponsors') }}" role="button">Sponsor Your Profile</a>
+                    </div>
+                </div>
 
 
                 <div class="d-flex">
@@ -16,7 +23,7 @@
                     </div>
 
                     <div class="col d-flex justify-content-center my-3 ">
-                        <a name="" id="" class="btn btn-primary" href="{{ route('messages') }}"
+                        <a name="" id="" class="btn btn-primary" href="{{ route('messages.index') }}"
                             role="button">Your Messages</a>
                         {{-- <span class="bg-danger">{{ $unreadMessages->count() }}</span> --}}
                     </div>

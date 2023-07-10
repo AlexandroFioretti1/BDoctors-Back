@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Doctor;
 use App\Models\Sponsor;
 use App\Http\Requests\StoreSponsorRequest;
 use App\Http\Requests\UpdateSponsorRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SponsorController extends Controller
 {
@@ -16,7 +18,11 @@ class SponsorController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        $sponsors = Sponsor::all();
+
+        return view('doctor.sponsor', compact('sponsors', 'user'));
     }
 
     /**

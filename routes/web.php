@@ -5,7 +5,7 @@ use App\Http\Controllers\Doctor\MessageController;
 use App\Http\Controllers\Doctor\ProfileController as DoctorProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Doctor\ReviewController;
-
+use App\Http\Controllers\Doctor\SponsorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/messages', MessageController::class);
 
     Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
-
+    Route::get('/sponsors', [SponsorController::class, 'index'])->name('sponsors');
 });
 
 //route Profile auth

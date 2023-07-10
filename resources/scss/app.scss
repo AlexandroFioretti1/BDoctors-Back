@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import "./sponsor.scss";
 
 .error {
     border: 5px solid red;
@@ -21,9 +22,11 @@ html {
     20% {
         background-color: #7ecef7;
     }
+
     35% {
         background-color: #6fc4ee;
     }
+
     50% {
         background-color: #56baed;
     }
@@ -35,6 +38,7 @@ html {
     90% {
         background-color: #279cd6;
     }
+
     100% {
         background-color: #05608d;
     }
@@ -110,6 +114,7 @@ h2 {
         padding: 16px 48px;
     }
 }
+
 // .btn-danger--------------//
 .btn-danger {
     background-color: #eb0404;
@@ -158,6 +163,7 @@ h2 {
         padding: 16px 48px;
     }
 }
+
 // .btn-danger----END----------//
 //.btn-secondary---------START--//
 .btn-secondary {
