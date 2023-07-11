@@ -11,6 +11,7 @@
                             <h4 class="card-title">{{ $sponsor->name }}</h4>
                             <p class="card-text">{{ $sponsor->duration }} h</p>
                             <p class="card-text"> € {{ $sponsor->price }}</p>
+                            <a class="btn btn-warning" href="{{ route('checkout') }}" role="button">Get</a>
                         </div>
                     </div>
                 </div>

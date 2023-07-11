@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Doctor\DashboardController;
 use App\Http\Controllers\Doctor\MessageController;
 use App\Http\Controllers\Doctor\ProfileController as DoctorProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Doctor\ReviewController;
 use App\Http\Controllers\Doctor\SponsorController;
+use App\Http\Controllers\BraintreeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,11 +44,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
     Route::get('/sponsors', [SponsorController::class, 'index'])->name('sponsors');
+    Route::get('/checkout', [BraintreeController::class, 'checkout'])->name('checkout');
+    Route::post('/payment', [BraintreeController::class, 'processPayment'])->name('payment.process');
 });
 
-//route Profile auth
-/* Route::middleware('auth')->group(function () {
- 
-}); */
+
 
 require __DIR__ . '/auth.php';
