@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Doctor\ReviewController;
 use App\Http\Controllers\Doctor\SponsorController;
 use App\Http\Controllers\BraintreeController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,8 +45,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
     Route::get('/sponsors', [SponsorController::class, 'index'])->name('sponsors');
-    Route::get('/checkout', [BraintreeController::class, 'checkout'])->name('checkout');
-    Route::post('/payment', [BraintreeController::class, 'processPayment'])->name('payment.process');
+    Route::get('/checkout/{id}', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::post('/payment', [CheckoutController::class, 'processPayment'])->name('payment.process');
 });
 
 

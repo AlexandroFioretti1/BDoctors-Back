@@ -10,17 +10,19 @@
             </div>
         @endif
         @if (session('error'))
-            <div class="alert alert-success">
+            <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif
 
         <form action="{{ route('payment.process') }}" method="post">
             @csrf
+
+            @method('POST')
             <div id="dropin-container">
             </div>
             <input type="hidden" name="payment_method_nonce">
-            <button id="submit-button" class="button button--small button--green">Purchase</button>
+            <a id="submit-button" class="button button--small button--green">Purchase</a>
         </form>
     </div>
 @endsection
