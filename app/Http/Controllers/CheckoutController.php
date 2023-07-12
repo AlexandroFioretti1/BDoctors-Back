@@ -66,12 +66,12 @@ class CheckoutController extends Controller
             $now = Carbon::now()->addHours(2);
             $startTime = $now->toDateTimeString();
             $endTime = $now->addHours($duration)->toDateTimeString();
-
             $profile->sponsors()->attach($sponsor_id, [
                 'start_time' => $startTime,
                 'end_time' => $endTime,
-
             ]);
+            $profile->isSponsored = 1;
+            $profile->update();
             return Redirect::back()->with('success', 'Payment successfully');
         } else {
             return Redirect::back()->with('error', 'Error during payment');
