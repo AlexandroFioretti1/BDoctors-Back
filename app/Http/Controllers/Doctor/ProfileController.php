@@ -283,8 +283,6 @@ class ProfileController extends Controller
         $profile->update($val_data);
 
 
-        //dd($new_profile);
-
 
         //if there are 'specializations'
         if ($request->has('specializations')) {
@@ -292,6 +290,8 @@ class ProfileController extends Controller
             //sync the specializations  into $profile
             $profile->specializations()->sync($request->specializations);
         }
+
+
 
         // return to index page whit success message
         return to_route('profiles.index')->with('message', 'Profile updated');

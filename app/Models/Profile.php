@@ -18,7 +18,8 @@ class Profile extends Model
         'doctor_image',
         'cv',
         'performances',
-        'user_id'
+        'user_id',
+        'isSponsored'
     ];
 
     //generate SLUG function
