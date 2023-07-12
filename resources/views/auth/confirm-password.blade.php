@@ -32,12 +32,12 @@
 
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn">
                                         {{ __('Confirm Password') }}
                                     </button>
 
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-link inline-block text-decoration-none fw-normal" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif

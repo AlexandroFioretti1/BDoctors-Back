@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-8 shadow-lg rounded-5 mt-5">
-            <h2 class="fs-4 text-secondary my-4 p-5">
+            <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
                 Your reviews
             </h2>
 

@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-8 shadow-lg rounded-5 mt-5">
-                <h2 class="fs-4 text-secondary my-4 p-5">
+                <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
                     Your Messages
                 </h2>
 
@@ -20,7 +20,7 @@
                                 <p>{{ $message->user_name_surname }}</p>
                                 <small>{{ $message->date }}</small><br>
 
-                                <button id="{{ $message->id }}" class="btn btn-primary px-3 py-1 read" role="button"
+                                <button id="{{ $message->id }}" class="btn btn-primary px-3 py-1 read border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn" role="button"
                                     data-message-id="{{ $message->id }}">
                                     Read
                                 </button>
