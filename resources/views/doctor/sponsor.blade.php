@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2> Sponsor Packages</h2>
+        <h2 class="text-center fw-semibold fs-5 inline-block m-2 text-uppercase"> Sponsor Packages</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
             @foreach ($sponsors as $sponsor)
                 <div class="col">

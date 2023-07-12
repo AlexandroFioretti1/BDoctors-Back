@@ -30,27 +30,27 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item ">
-                                    <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link  inline-block text-decoration-none fw-normal " href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item ">
-                                        <a class="nav-link " href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link  inline-block text-decoration-none fw-normal" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif
                             @else
                                 <li class="nav-item dropdown ">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle " href="#" role="button"
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle  inline-block text-decoration-none fw-normal" href="#" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-left button-51"
                                         aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item button-51"
+                                        <a class="dropdown-item button-51  inline-block text-decoration-none fw-normal"
                                             href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
-                                        <a class="dropdown-item button-51"
+                                        <a class="dropdown-item button-51  inline-block text-decoration-none fw-normal"
                                             href="{{ url('profile') }}">{{ __('Profile') }}</a>
-                                        <a class="dropdown-item button-51" href="{{ route('logout') }}"
+                                        <a class="dropdown-item button-51  inline-block text-decoration-none fw-normal" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}

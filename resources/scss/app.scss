@@ -1,14 +1,20 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./sponsor.scss";
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 
 
+
+
+/* BASIC */
 .error {
     border: 5px solid red;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Poppins");
-
-/* BASIC */
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+}
 
 html {
     background-color: #ffffff;
@@ -45,20 +51,20 @@ html {
     }
 }
 
-body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-    overflow-x: hidden;
-}
 
 a {
+    color: #92badd;
+}
+
+
+/* a {
     color: #92badd;
     display: inline-block;
     text-decoration: none;
     font-weight: 400;
-}
+} */
 
-h2 {
+/* h2 {
     text-align: center;
     font-size: 16px;
     font-weight: 600;
@@ -66,9 +72,9 @@ h2 {
     display: inline-block;
     margin: 40px 8px 10px 8px;
     color: #cccccc;
-}
+} */
 
-.btn-primary {
+/* .btn-primary {
     background-color: #0078d0;
     border: 0;
     border-radius: 56px;
@@ -88,9 +94,16 @@ h2 {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-}
+} */
 
-.btn-primary:before {
+
+.btn-primary .blue-btn {
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
+    transition: all 0.3s;
+    touch-action: manipulation;
+}
+.blue-btn:before {
     background-color: initial;
     background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
     border-radius: 125px;
@@ -103,21 +116,20 @@ h2 {
     transition: all 0.3s;
     width: 92%;
 }
-
-.btn-primary:hover {
+.blue-btn:hover {
     box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
         rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
     transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
-    .btn-primary {
+    .blue-btn {
         padding: 16px 48px;
     }
 }
 
 // .btn-danger--------------//
-.btn-danger {
+/* .btn-danger {
     background-color: #eb0404;
     border: 0;
     border-radius: 56px;
@@ -137,9 +149,17 @@ h2 {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+} */
+.btn-danger .red-btn {
+    background-color: #eb0404;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
+    padding: 16px 21px;
+    transition: all 0.3s;
+    touch-action: manipulation;
 }
 
-.btn-danger:before {
+.red-btn:before {
     background-color: initial;
     background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
     border-radius: 125px;
@@ -153,21 +173,21 @@ h2 {
     width: 92%;
 }
 
-.btn-danger:hover {
+.red-btn:hover {
     box-shadow: rgba(94, 13, 13, 0.2) 0 3px 15px inset,
         rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
     transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
-    .btn-danger {
+    .red-btn {
         padding: 16px 48px;
     }
 }
 
 // .btn-danger----END----------//
 //.btn-secondary---------START--//
-.btn-secondary {
+/* .btn-secondary {
     background-color: #181212b6;
     border: 0;
     border-radius: 56px;
@@ -187,9 +207,18 @@ h2 {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+} */
+.btn-secondary .grey-btn {
+    background-color: #181212b6;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
+    padding: 16px 21px;  
+    transition: all 0.3s;
+    touch-action: manipulation;
 }
 
-.btn-secondary:before {
+
+.grey-btn :before {
     background-color: initial;
     background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
     border-radius: 125px;
@@ -203,21 +232,21 @@ h2 {
     width: 92%;
 }
 
-.btn-secondary:hover {
+.grey-btn :hover {
     box-shadow: rgba(94, 13, 13, 0.2) 0 3px 15px inset,
         rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
     transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
-    .btn-secondary {
+    .grey-btn  {
         padding: 16px 48px;
     }
 }
 
 /* STRUCTURE */
 
-.wrapper {
+/* .wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -225,8 +254,12 @@ h2 {
     width: 100%;
     min-height: 100%;
     padding: 20px;
-}
+} */
 
+.wrapper {
+    min-height: 100%;
+    padding: 20px;
+}
 // #region ambulance
 // .ambulance {
 //     height: 70px;

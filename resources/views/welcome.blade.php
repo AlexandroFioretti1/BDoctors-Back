@@ -15,7 +15,7 @@
         </h1>
 
         <p class="col-md-8 fs-4">This a preset package with Bootstrap 5 views for laravel projects including laravel breeze/blade. It works from laravel 9.x to the latest release 10.x</p>
-        <a href="https://packagist.org/packages/pacificdev/laravel_9_preset" class="btn btn-primary btn-lg" type="button">Documentation</a>
+        <a href="https://packagist.org/packages/pacificdev/laravel_9_preset" class="btn btn-primary   inline-block text-decoration-none fw-normal btn-lg border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn" type="button">Documentation</a>
     </div>
 </div>
 

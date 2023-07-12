@@ -100,7 +100,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 mt-4 py-2 px-4 my-5">Create Profile</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-4 py-2 px-4 my-5 border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn">Create Profile</button>
                     {{-- /submit create profile --}}
                 </form>
                 {{-- /form --}}

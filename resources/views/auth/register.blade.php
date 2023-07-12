@@ -4,10 +4,10 @@
     <div class="container mt-4 ">
         <div class="row justify-content-center">
             <div class="col-md-12 ">
-                <div class="wrapper fadeInDown">
+                <div class="wrapper fadeInDown d-flex align-items-center flex-column justify-center w-100 ">
                     <div id="formContent" class="col-8 shadow-lg rounded-5 mt-3">
                         <!-- Tabs Titles -->
-                        <h2 class="inactive underlineHover">Sign Up</h2>
+                        <h2 class="inactive underlineHover text-center fw-semibold fs-5 inline-block m-2 text-uppercase">Sign Up</h2>
 
                         <!-- Icon -->
                         <div class="fadeIn first">
@@ -147,7 +147,7 @@
 
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -157,7 +157,7 @@
 
                         <!-- Remind Password -->
                         <div id="formFooter">
-                            <a class="underlineHover" href="#">Forgot Password?</a>
+                            <a class="underlineHover inline-block text-decoration-none fw-normal" href="#">Forgot Password?</a>
                         </div>
 
                     </div>

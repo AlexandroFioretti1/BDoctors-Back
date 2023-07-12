@@ -4,11 +4,11 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8 ">
-                <div class="wrapper fadeInDown ">
+                <div class="wrapper fadeInDown d-flex align-items-center flex-column justify-center w-100 ">
                     <div id="formContent" class="col-8 shadow-lg rounded-5 mt-3">
                         <!-- Tabs Titles -->
-                        <h2 class="active"> Sign In </h2>
-                        {{-- <h2 class="inactive underlineHover">Sign Up </h2> --}}
+                        <h2 class="active text-center fw-semibold fs-5 inline-block m-2 text-uppercase"> Sign In </h2>
+                        {{-- <h2 class="inactive underlineHover text-center fw-semibold fs-5 inline-block m-2 text-uppercase">Sign Up </h2> --}}
 
                         <!-- Icon -->
                         <div class="fadeIn first">
@@ -43,7 +43,8 @@
 
                             <div class="row">
                                 <div class="col p-2">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" 
+                                    class="btn btn-primary blue-btn border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none ">
                                         {{ __('Login') }}
                                     </button>
 
@@ -53,7 +54,7 @@
                         <!-- Remind Passowrd -->
                         <div class="underlineHover" href="#" id="formFooter">
                             @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link inline-block text-decoration-none fw-normal" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif

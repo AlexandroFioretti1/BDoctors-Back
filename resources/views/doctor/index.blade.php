@@ -9,7 +9,7 @@
             <div class="col-8 shadow-lg rounded-5 mt-5">
                 @if (!$profile)
                     <div class="my-3 p-3 text-center">
-                        <a class="btn btn-primary" href="{{ route('profiles.create') }}" role="button">Create a profile</a>
+                        <a class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn inline-block text-decoration-none fw-normal " href="{{ route('profiles.create') }}" role="button">Create a profile</a>
                     </div>
                 @endif
 
@@ -46,14 +46,14 @@
 
                                 <div class="col">
                                     {{-- edit button  --}}
-                                    <a class="btn btn-primary" href="profiles/{{ $profile->slug }}/edit"
+                                    <a class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn inline-block text-decoration-none fw-normal" href="profiles/{{ $profile->slug }}/edit"
                                         role="button">Edit</a>
                                 </div>
 
 
                                 <div class="col">
                                     {{-- delete button  --}}
-                                    <a class="btn btn-danger" role="button" data-bs-toggle="modal"
+                                    <a class="btn btn-danger inline-block text-decoration-none fw-normal border-0 rounded-5 text-white cursor-pointer inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none red-btn" role="button" data-bs-toggle="modal"
                                         data-bs-target="#deleteModal-{{ $profile->id }}">Delete</a>
                                 </div>
 
@@ -76,12 +76,12 @@
                                             Are you sure you want to delete this profile
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
+                                            <button type="button" class="btn btn-secondary border-0 rounded-5 text-white inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none grey-btn "
                                                 data-bs-dismiss="modal">No</button>
                                             <form action="{{ route('profiles.destroy', $profile->slug) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger  inline-block text-decoration-none fw-normal border-0 rounded-5 text-white cursor-pointer inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none red-btn">Delete</button>
                                             </form>
                                         </div>
                                     </div>
