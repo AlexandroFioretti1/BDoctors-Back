@@ -10,7 +10,7 @@
             </div>
         @endif
         @if (session('error'))
-            <div class="alert alert-success">
+            <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif
@@ -18,6 +18,7 @@
         <form action="{{ route('payment.process') }}" method="post">
             @csrf
 
+            <input type="hidden" id="nonce" name="payment_method_nonce" />
             <input type="hidden" name="sponsor_id" value="{{ $sponsorPlan->id }}">
             <input type="hidden" name="sponsor_price" value="{{ $sponsorPlan->price }}">
             <input type="hidden" name="sponsor_duration" value="{{ $sponsorPlan->duration }}">
