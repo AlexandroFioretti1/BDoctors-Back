@@ -25,29 +25,29 @@ class ProfileController extends Controller
             //check if specialization_id matches with selectSpecialization
             $profiles = $profiles->whereHas('specializations', function ($query) use ($selectedSpecialization) {
                 $query->where('id', $selectedSpecialization);
-            })->get();
+            })->orderByDesc('isSponsored')->get();
 
             /* selectedVote  */
             if ($selectedVote) {
                 if ($selectedVote == 'all') {
                     $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->whereHas('specializations', function ($query) use ($selectedSpecialization) {
                         $query->where('id', $selectedSpecialization);
-                    })->get();
+                    })->orderByDesc('isSponsored')->get();
                 } else {
-                    $profiles = $profiles->where('average_vote', '>=', $selectedVote);
+                    $profiles = $profiles->where('average_vote', '>=', $selectedVote)->orderByDesc('isSponsored')->get();
                 }
             }
 
             if ($selectedReview) {
 
                 if ($selectedReview == 1) {
-                    $profiles = $profiles->where('counter_reviews', null)->where('counter_reviews', '<=', 2);
+                    $profiles = $profiles->where('counter_reviews', null)->where('counter_reviews', '<=', 2)->orderByDesc('isSponsored')->get();
                 } elseif ($selectedReview == 2) {
-                    $profiles = $profiles->where('counter_reviews', '>', 2)->where('counter_reviews', '<', 5);
+                    $profiles = $profiles->where('counter_reviews', '>', 2)->where('counter_reviews', '<', 5)->orderByDesc('isSponsored')->get();
                 } elseif ($selectedReview == 3) {
-                    $profiles = $profiles->where('counter_reviews', '>=', 5);
+                    $profiles = $profiles->where('counter_reviews', '>=', 5)->orderByDesc('isSponsored')->get();
                 } elseif ($selectedReview == 'all') {
-                    $profiles = $profiles->all();
+                    $profiles = $profiles->all()->orderByDesc('isSponsored')->get();
                 }
             }
         } else {
