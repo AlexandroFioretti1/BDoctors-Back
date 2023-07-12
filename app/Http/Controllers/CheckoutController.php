@@ -24,7 +24,9 @@ class CheckoutController extends Controller
             'privateKey' => env('BRAINTREE_PRIVATE_KEY')
         ]);
 
-        $clientToken = $gateway->ClientToken()->generate();
+        // generate token 
+        $clientToken = $gateway->clientToken()->generate();
+
         $sponsorPlan = Sponsor::where('id', $id)->first();
         return view('doctor.checkout', compact('clientToken', 'sponsorPlan'));
     }
@@ -41,7 +43,7 @@ class CheckoutController extends Controller
         $price = $request->sponsor_price;
         $sponsor_id = $request->sponsor_id;
         $duration = $request->sponsor_duration;
-        $payment_method_nonce = $request->payment_method_nonce;
+
 
 
         $gateway = new Gateway([
@@ -52,9 +54,10 @@ class CheckoutController extends Controller
         ]);
 
 
+        // $payment_method_nonce = $request->payment_method_nonce;
         $result = $gateway->transaction()->sale([
             'amount' => $price,
-            'paymentMethodNonce' => 'fake-valid-visa-nonce',
+            'paymentMethodNonce' => 'fake-valid-nonce',
             'options' => [
                 'submitForSettlement' => True
             ]

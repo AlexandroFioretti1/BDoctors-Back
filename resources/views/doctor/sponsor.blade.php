@@ -11,7 +11,7 @@
                             {{-- Add 'id' as second param  --}}
                             <form action="{{ route('checkout', ['id' => $sponsor->id]) }}" method="get">
                                 @csrf
-
+                                <input type="hidden" id="payment-method-nonce" name="payment_method_nonce">
                                 {{-- send data to controller --}}
                                 {{-- <input type="hidden" name="sponsor_id" value="{{ $sponsor->id }}">
                                 <input type="hidden" name="sponsor_price" value="{{ $sponsor->price }}">

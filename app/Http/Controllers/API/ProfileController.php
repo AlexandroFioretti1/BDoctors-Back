@@ -52,7 +52,8 @@ class ProfileController extends Controller
             }
         } else {
             //get all profile  by paginate with tables connect 'rewies','votes','specializzation','user'
-            $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->paginate(10);
+            // $profiles = Profile::with('reviews', 'votes', 'specializations', 'user')->paginate(10);
+            $profiles = $profiles->where('isSponsored', 1)->paginate(10);
         }
 
         //return file json with status success and $profiles
