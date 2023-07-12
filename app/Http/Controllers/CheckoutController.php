@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sponsor;
 use Braintree\Gateway;
 use Braintree\Transaction;
 use Illuminate\Http\Request;
@@ -11,18 +12,9 @@ use Illuminate\Support\Facades\Redirect;
 class CheckoutController extends Controller
 {
 
-    public function checkout()
+    public function checkout($id)
     {
 
-        // take profile data
-        // $user = Auth::user();
-        // $profile = $user->profile;
-        // $profileId = $profile->id;
-
-        // take data from request
-        // $price = $request->sponsor_price;
-        // $sponsor_id = $request->sponsor_id;
-        // $duration = $request->sponsor_duration;
 
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENV'),
@@ -32,12 +24,11 @@ class CheckoutController extends Controller
         ]);
 
         $clientToken = $gateway->ClientToken()->generate();
-        // take the id of the plan 
-        return view('doctor.checkout', compact('clientToken'));
+        $sponsorPlan = Sponsor::where('id', $id)->first();
+        return view('doctor.checkout', compact('clientToken', 'sponsorPlan'));
     }
     public function processPayment(Request $request)
     {
-
         // take profile data
         $user = Auth::user();
         $profile = $user->profile;
@@ -47,7 +38,7 @@ class CheckoutController extends Controller
         // take data from request
         $price = $request->sponsor_price;
         $sponsor_id = $request->sponsor_id;
-        // $duration = $request->sponsor_duration;
+        $duration = $request->sponsor_duration;
 
 
         $gateway = new Gateway([

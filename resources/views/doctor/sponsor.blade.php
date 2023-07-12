@@ -9,14 +9,14 @@
                     <div class="card text-center sponsor_card shadow border-2">
                         <div class="card-body">
                             {{-- Add 'id' as second param  --}}
-                            <form action="{{ route('checkout') }}" method="get">
+                            <form action="{{ route('checkout', ['id' => $sponsor->id]) }}" method="get">
                                 @csrf
 
                                 {{-- send data to controller --}}
-                                <input type="hidden" name="sponsor_id" value="{{ $sponsor->id }}">
+                                {{-- <input type="hidden" name="sponsor_id" value="{{ $sponsor->id }}">
                                 <input type="hidden" name="sponsor_price" value="{{ $sponsor->price }}">
                                 <input type="hidden" name="sponsor_duration" value="{{ $sponsor->duration }}">
-                                <input type="hidden" name="sponsor_name" value="{{ $sponsor->name }}">
+                                <input type="hidden" name="sponsor_name" value="{{ $sponsor->name }}"> --}}
 
                                 <h4 class="card-title">{{ $sponsor->name }}</h4>
                                 <p class="card-text">{{ $sponsor->duration }} h</p>
