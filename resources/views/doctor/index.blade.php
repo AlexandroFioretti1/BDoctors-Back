@@ -6,16 +6,19 @@
 
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-8 shadow-lg rounded-5 mt-5">
+            <div class="col-8 shadow-lg rounded-5 mt-5 mb-5">
                 @if (!$profile)
                     <div class="my-3 p-3 text-center">
-                        <a class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn inline-block text-decoration-none fw-normal " href="{{ route('profiles.create') }}" role="button">Create a profile</a>
+                        <a class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn inline-block text-decoration-none fw-normal "
+                            href="{{ route('profiles.create') }}" role="button">Create a profile</a>
                     </div>
                 @endif
 
                 @if ($profile)
-                    <div class="card shadow p-3">
-                        <img class="card-img-top" src="{{ asset('storage/' . $profile->doctor_image) }}" alt="img">
+                    <div class="card shadow p-3 mb-2">
+                        <div class="image_profile">
+                            <img class="card-img-top" src="{{ asset('storage/' . $profile->doctor_image) }}" alt="img">
+                        </div>
                         <div class="card-body">
                             <h4 class="card-title">{{ $profile->user->name }} {{ $profile->user?->surname }} </h4>
                             <p class="card-text">{{ $profile->address }}</p>
@@ -25,7 +28,7 @@
                                 @endforeach
                             </ul>
                             <h6><strong>Your reviews </strong></h6>
-                            <div>
+                            <div class="reviews_section">
                                 <ul>
                                     @foreach ($reviews as $review)
                                         <li>
@@ -46,14 +49,15 @@
 
                                 <div class="col">
                                     {{-- edit button  --}}
-                                    <a class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn inline-block text-decoration-none fw-normal" href="profiles/{{ $profile->slug }}/edit"
-                                        role="button">Edit</a>
+                                    <a class="btn btn-primary border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn inline-block text-decoration-none fw-normal"
+                                        href="profiles/{{ $profile->slug }}/edit" role="button">Edit</a>
                                 </div>
 
 
                                 <div class="col">
                                     {{-- delete button  --}}
-                                    <a class="btn btn-danger inline-block text-decoration-none fw-normal border-0 rounded-5 text-white cursor-pointer inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none red-btn" role="button" data-bs-toggle="modal"
+                                    <a class="btn btn-danger inline-block text-decoration-none fw-normal border-0 rounded-5 text-white cursor-pointer inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none red-btn"
+                                        role="button" data-bs-toggle="modal"
                                         data-bs-target="#deleteModal-{{ $profile->id }}">Delete</a>
                                 </div>
 
@@ -76,12 +80,14 @@
                                             Are you sure you want to delete this profile
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary border-0 rounded-5 text-white inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none grey-btn "
+                                            <button type="button"
+                                                class="btn btn-secondary border-0 rounded-5 text-white inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none grey-btn "
                                                 data-bs-dismiss="modal">No</button>
                                             <form action="{{ route('profiles.destroy', $profile->slug) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger  inline-block text-decoration-none fw-normal border-0 rounded-5 text-white cursor-pointer inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none red-btn">Delete</button>
+                                                <button type="submit"
+                                                    class="btn btn-danger  inline-block text-decoration-none fw-normal border-0 rounded-5 text-white cursor-pointer inline-block fs-5 fw-semibold position-relative text-center text-decoration-none select-none red-btn">Delete</button>
                                             </form>
                                         </div>
                                     </div>

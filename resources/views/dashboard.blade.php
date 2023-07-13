@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-8 shadow-lg rounded-5 mt-5">
+            <div class="col-8 shadow-lg rounded-5 mt-5 ">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <h2
