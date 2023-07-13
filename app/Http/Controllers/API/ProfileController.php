@@ -66,6 +66,7 @@ class ProfileController extends Controller
     public function show($slug)
     {
         $profile = Profile::with(['reviews', 'votes', 'specializations', 'user'])->where("slug", $slug)->first();
+
         if ($profile) {
             return response()->json([
                 "success" => true,

@@ -8,6 +8,7 @@ use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Vote;
 
 class ReviewController extends Controller
 {
@@ -21,8 +22,10 @@ class ReviewController extends Controller
         $user = Auth::user();
         $profile = $user->profile;
 
+        $votes = Vote::where('profile_id', $profile->id)->get();
+
         $reviews = Review::where('profile_id', $profile->id)->orderByDesc('id')->get();
-        return view('doctor.reviews', compact('reviews'));
+        return view('doctor.reviews', compact('reviews', 'profile', 'votes'));
     }
 
 
