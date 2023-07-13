@@ -22,6 +22,11 @@ html {
     animation: backgroundTransition 22s linear forwards;
 }
 
+.logo {
+    height: 300px;
+    object-fit: contain;
+}
+
 @keyframes backgroundTransition {
     0% {
         background-color: #ffffff;
