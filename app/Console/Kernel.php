@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('update:sponsor-status')->everyTwoHours();
+        $schedule->command('update:sponsor-status')->everyMinute();
         // $schedule->command('inspire')->hourly();
     }
 
