@@ -6,31 +6,39 @@
             <div class="col-8 shadow-lg rounded-5 mt-5">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block m-2 text-uppercase">
+                        <h2
+                            class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block m-2 text-uppercase">
                             {{ __('Dashboard') }}
                         </h2>
                     </div>
-                    <div>
-                        <a class="btn btn-success  inline-block text-decoration-none fw-normal" href="{{ route('sponsors') }}" role="button">Sponsor Your Profile</a>
-                    </div>
+                    @if ($profile)
+                        <div>
+                            <a class="btn btn-success  inline-block text-decoration-none fw-normal"
+                                href="{{ route('sponsors') }}" role="button">Sponsor Your Profile</a>
+                        </div>
+                    @endif
+
                 </div>
 
 
                 <div class="d-flex">
                     <div class="col d-flex justify-content-center my-3">
-                        <a name="" id="" class="btn btn-primary  inline-block text-decoration-none fw-normal border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn" href="{{ route('profiles.index') }}"
-                            role="button">Profile Doctor</a>
+                        <a name="" id=""
+                            class="btn btn-primary  inline-block text-decoration-none fw-normal border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn"
+                            href="{{ route('profiles.index') }}" role="button">Profile Doctor</a>
                     </div>
 
                     <div class="col d-flex justify-content-center my-3 ">
-                        <a name="" id="" class="btn btn-primary  inline-block text-decoration-none fw-normal border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn" href="{{ route('messages.index') }}"
-                            role="button">Your Messages</a>
+                        <a name="" id=""
+                            class="btn btn-primary  inline-block text-decoration-none fw-normal border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn"
+                            href="{{ route('messages.index') }}" role="button">Your Messages</a>
                         {{-- <span class="bg-danger">{{ $unreadMessages->count() }}</span> --}}
                     </div>
 
                     <div class="col d-flex justify-content-center my-3 ">
-                        <a name="" id="" class="btn btn-primary  inline-block text-decoration-none fw-normals border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn" href="{{ route('reviews') }}"
-                            role="button">Your Rewievs</a>
+                        <a name="" id=""
+                            class="btn btn-primary  inline-block text-decoration-none fw-normals border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn"
+                            href="{{ route('reviews') }}" role="button">Your Rewievs</a>
                     </div>
                 </div>
 
