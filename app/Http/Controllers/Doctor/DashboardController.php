@@ -15,7 +15,8 @@ class DashboardController extends Controller
         $messages = Message::where('user_id', $user->id)->get();
 
         $unreadMessages = Message::where('user_id', $user->id)->where('read', 0)->get();
+        $profile = $user->profile;
 
-        return view('dashboard', compact('messages', 'unreadMessages'));
+        return view('dashboard', compact('messages', 'unreadMessages', 'profile'));
     }
 }

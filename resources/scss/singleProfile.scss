@@ -1,0 +1,16 @@
+.image_profile {
+    height: 400px;
+    aspect-ratio: 1;
+
+
+    img {
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+.reviews_section {
+    height: 200px;
+    overflow-y: scroll;
+}

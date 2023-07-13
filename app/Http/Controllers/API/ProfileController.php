@@ -34,20 +34,20 @@ class ProfileController extends Controller
                         $query->where('id', $selectedSpecialization);
                     })->orderByDesc('isSponsored')->get();
                 } else {
-                    $profiles = $profiles->where('average_vote', '>=', $selectedVote)->orderByDesc('isSponsored')->get();
+                    $profiles = $profiles->where('average_vote', '>=', $selectedVote);
                 }
             }
 
             if ($selectedReview) {
 
                 if ($selectedReview == 1) {
-                    $profiles = $profiles->where('counter_reviews', null)->where('counter_reviews', '<=', 2)->orderByDesc('isSponsored')->get();
+                    $profiles = $profiles->where('counter_reviews', null)->where('counter_reviews', '<', 2);
                 } elseif ($selectedReview == 2) {
-                    $profiles = $profiles->where('counter_reviews', '>', 2)->where('counter_reviews', '<', 5)->orderByDesc('isSponsored')->get();
+                    $profiles = $profiles->where('counter_reviews', '>=', 2)->where('counter_reviews', '<=', 5);
                 } elseif ($selectedReview == 3) {
-                    $profiles = $profiles->where('counter_reviews', '>=', 5)->orderByDesc('isSponsored')->get();
+                    $profiles = $profiles->where('counter_reviews', '>', 5);
                 } elseif ($selectedReview == 'all') {
-                    $profiles = $profiles->all()->orderByDesc('isSponsored')->get();
+                    $profiles = $profiles->all();
                 }
             }
         } else {
