@@ -27,8 +27,8 @@
                                     <li> {{ $specialization->name }}</li>
                                 @endforeach
                             </ul>
-                            <h6><strong>Your reviews </strong></h6>
-                            <div class="reviews_section">
+                            {{-- <h6><strong>Your reviews </strong></h6> --}}
+                            {{-- <div class="reviews_section">
                                 <ul>
                                     @foreach ($reviews as $review)
                                         <li>
@@ -41,7 +41,7 @@
                                     @endforeach
 
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="d-flex">
                             <div class="row gap-1 p-3">
