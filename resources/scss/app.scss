@@ -4,8 +4,6 @@
 @import "./singleProfile.scss";
 @import "./vote.scss";
 
-
-
 // /* BASIC */
 .error {
     border: 5px solid red;
@@ -57,51 +55,9 @@ html {
     }
 }
 
-
 a {
     color: #92badd;
 }
-
-
-/* a {
-    color: #92badd;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 400;
-} */
-
-/* h2 {
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: inline-block;
-    margin: 40px 8px 10px 8px;
-    color: #cccccc;
-} */
-
-/* .btn-primary {
-    background-color: #0078d0;
-    border: 0;
-    border-radius: 56px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
-        "Helvetica Neue", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    outline: 0;
-    padding: 16px 21px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-} */
-
 
 .btn-primary .blue-btn {
     font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
@@ -136,28 +92,6 @@ a {
     }
 }
 
-// .btn-danger--------------//
-/* .btn-danger {
-    background-color: #eb0404;
-    border: 0;
-    border-radius: 56px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
-        "Helvetica Neue", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    outline: 0;
-    padding: 16px 21px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-} */
 .btn-danger .red-btn {
     background-color: #eb0404;
     font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
@@ -194,28 +128,7 @@ a {
 }
 
 // .btn-danger----END----------//
-//.btn-secondary---------START--//
-/* .btn-secondary {
-    background-color: #181212b6;
-    border: 0;
-    border-radius: 56px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
-        "Helvetica Neue", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    outline: 0;
-    padding: 16px 21px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-} */
+
 .btn-secondary .grey-btn {
     background-color: #181212b6;
     font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
@@ -224,7 +137,6 @@ a {
     transition: all 0.3s;
     touch-action: manipulation;
 }
-
 
 .grey-btn :before {
     background-color: initial;
@@ -254,46 +166,10 @@ a {
 
 /* STRUCTURE */
 
-/* .wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    min-height: 100%;
-    padding: 20px;
-} */
-
 .wrapper {
     min-height: 100%;
     padding: 20px;
 }
-
-// #region ambulance
-// .ambulance {
-//     height: 70px;
-//     object-fit: contain;
-//     animation: move 10s 1 linear;
-//     position: absolute;
-//     left: -15vh;
-
-//     img {
-//         height: 100%;
-//     }
-// }
-
-// @keyframes move {
-//     0% {
-//         left: -15vh;
-
-//     }
-
-//     100% {
-//         left: 100%;
-//     }
-// }
-
-// #endregion ambulance
 
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
