@@ -7,7 +7,7 @@
                     <a class="navbar-brand d-flex align-items-center" href="http://localhost:5174/#">
                         <div class="logo_laravel navbar-expand-sm px-2  px-sm-0   ">
                             <div class="fadeIn ">
-                                <img class="w-75 logo" src="{{ asset('img/bdoctor__2_-removebg-preview.png') }}"
+                                <img class="w-100 logo" src="{{ asset('img/bdoctor__2_-removebg-preview.png') }}"
                                     id="icon" alt="User Icon" />
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto align-content-end ">
+                        <ul class="navbar-nav ml-auto align-content-start ">
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item ">
