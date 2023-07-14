@@ -476,4 +476,10 @@ input[type="password"]:placeholder {
     box-sizing: border-box;
 }
 
+.dropdown_logged {
+    position: relative !important;
+    left: -100px !important;
+    top: 0% !important;
+}
+
 //---------navbar---------//

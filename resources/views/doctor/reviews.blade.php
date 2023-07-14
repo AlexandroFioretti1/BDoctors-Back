@@ -1,45 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row d-flex flex-column flex-lg-row justify-content-center gap-4">
-            <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-5 bg-white ">
-                <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
+            <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-3 bg-white ">
+                <h2 class="fs-4 text-secondary my-2 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
                     Your Messages
                 </h2>
 
-                <div class=" bg_secondary rounded text-white mt-4 mt-lg-0">
-                    <div class="shadow p-4 rounded-4">
-                        <div class="wrapper">
-                            <canvas id="messagesChart"></canvas>
-                        </div>
+                <div class=" bg_secondary rounded text-white mt-2 mt-lg-0">
+
+                    <div class="wrapper">
+                        <canvas id="messagesChart"></canvas>
                     </div>
+
                 </div>
             </div>
             {{-- /your messages --}}
 
-            <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-5 bg-white ">
-                <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
+            <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-3 bg-white ">
+                <h2 class="fs-4 text-secondary my-2 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
                     Your Votes
                 </h2>
 
-                <div class=" bg_secondary rounded text-white mt-4 mt-lg-0">
-                    <div class="shadow p-4 rounded-4">
-                        <div class="wrapper">
-                            <ul class="list-unstyled">
-                                <li class="average text-center">
-                                    Your average vote is: <strong>{{ $profile->average_vote }}</strong>
-                                </li>
+                <div class=" bg_secondary rounded text-white mt-2 mt-lg-0">
 
-                            </ul>
-                            <canvas id="votesChart"></canvas>
-                        </div>
+                    <div class="wrapper">
+                        <ul class="list-unstyled">
+                            <li class="average text-center">
+                                Your average vote is: <strong>{{ $profile->average_vote }}</strong>
+                            </li>
+
+                        </ul>
+                        <canvas id="votesChart"></canvas>
                     </div>
+
                 </div>
             </div>
             {{-- /your messages --}}
 
-            <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-5 bg-white">
+            <div class="col-12 shadow-lg rounded-5 mt-3 bg-white">
                 <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
                     Your reviews
                 </h2>
