@@ -20,13 +20,14 @@
                                 <p>{{ $message->user_name_surname }}</p>
                                 <small>{{ $message->date }}</small><br>
 
-                                <button id="{{ $message->id }}" class="btn btn-primary px-3 py-1 read border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn" role="button"
-                                    data-message-id="{{ $message->id }}">
+                                <button id="{{ $message->id }}"
+                                    class="btn btn-primary px-3 py-1 read border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn"
+                                    role="button" data-message-id="{{ $message->id }}">
                                     Read
                                 </button>
 
                             </div>
-                            <div class="card-body">
+                            <div class="card-body d-none">
                                 <p>{{ $message->text }} </p>
                                 <p>Answer at: <strong>{{ $message->email }}</strong></p>
                             </div>

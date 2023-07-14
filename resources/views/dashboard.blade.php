@@ -23,9 +23,17 @@
 
                 <div class="d-flex">
                     <div class="col d-flex justify-content-center my-3">
-                        <a name="" id=""
-                            class="btn btn-primary  inline-block text-decoration-none fw-normal border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn"
-                            href="{{ route('profiles.index') }}" role="button">Profile Doctor</a>
+                        @if (!$profile)
+                            <a name="" id=""
+                                class="btn btn-warning  inline-block text-decoration-none fw-normal border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn"
+                                href="{{ route('profiles.create') }}" role="button">Create your Profile</a>
+                        @else
+                            <a name="" id=""
+                                class="btn btn-primary  inline-block text-decoration-none fw-normal border-0 text-white cursor-pointer inline-block position-relative text-decoration-none user-select-none rounded-5 fs-5 fw-semibold text-center select-none blue-btn"
+                                href="{{ route('profiles.index') }}" role="button">Profile Doctor</a>
+                        @endif
+
+
                     </div>
 
                     <div class="col d-flex justify-content-center my-3 ">
