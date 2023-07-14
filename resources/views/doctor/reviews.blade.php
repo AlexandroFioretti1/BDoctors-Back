@@ -5,6 +5,21 @@
         <div class="row d-flex flex-column flex-lg-row justify-content-center gap-4">
             <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-5 bg-white ">
                 <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
+                    Your Messages
+                </h2>
+
+                <div class=" bg_secondary rounded text-white mt-4 mt-lg-0">
+                    <div class="shadow p-4 rounded-4">
+                        <div class="wrapper">
+                            <canvas id="messagesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- /your messages --}}
+
+            <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-5 bg-white ">
+                <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
                     Your Votes
                 </h2>
 
@@ -15,26 +30,6 @@
                                 <li class="average text-center">
                                     Your average vote is: <strong>{{ $profile->average_vote }}</strong>
                                 </li>
-                                {{-- <li class="d-flex justify-content-between">
-                                    <div>⭐</div>
-                                    <div>{{ $votes->where('vote', 1)->count() }}</div>
-                                </li>
-                                <li class="d-flex justify-content-between">
-                                    <div>⭐⭐</div>
-                                    <div>{{ $votes->where('vote', 2)->count() }}</div>
-                                </li>
-                                <li class="d-flex justify-content-between">
-                                    <div>⭐⭐⭐</div>
-                                    <div>{{ $votes->where('vote', 3)->count() }}</div>
-                                </li>
-                                <li class="d-flex justify-content-between">
-                                    <div>⭐⭐⭐⭐</div>
-                                    <div>{{ $votes->where('vote', 4)->count() }}</div>
-                                </li>
-                                <li class="d-flex justify-content-between">
-                                    <div>⭐⭐⭐⭐⭐</div>
-                                    <div>{{ $votes->where('vote', 5)->count() }}</div>
-                                </li> --}}
 
                             </ul>
                             <canvas id="votesChart"></canvas>
@@ -42,6 +37,8 @@
                     </div>
                 </div>
             </div>
+            {{-- /your messages --}}
+
             <div class="col-12 col-lg-5 shadow-lg rounded-5 mt-5 bg-white">
                 <h2 class="fs-4 text-secondary my-4 p-5 text-center fw-semibold fs-5 inline-block  text-uppercase">
                     Your reviews
@@ -62,10 +59,12 @@
                     @endforeach
                 </div>
             </div>
+            {{-- /your reviews --}}
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        // votesChart
         const votesData = @json($votes);
 
 
@@ -75,8 +74,6 @@
         for (let i = 1; i <= 5; i++) {
             data.push(votesData[i] || 0);
         }
-
-
 
 
         const ctx = document.getElementById('votesChart').getContext('2d');
@@ -104,6 +101,42 @@
                     legend: {
                         display: false
                     }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const ctxMessages = document.getElementById('messagesChart');
+
+        const messagesData = @json($messages);
+
+        const dataMessage = Object.values(messagesData)
+
+        const labelsMessage = Object.keys(messagesData);
+
+        new Chart(ctxMessages, {
+            type: 'line',
+            data: {
+                labels: labelsMessage,
+                datasets: [{
+                    label: 'Your Messages stats',
+                    data: dataMessage,
+                    fill: false,
+                    borderWidth: 1,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
                 }
             }
         });
